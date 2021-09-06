@@ -1,7 +1,10 @@
 .content-container {
     margin-top: 10vh;
     display: flex;
-    height: 90vh;
+    
+  }
+  .content::-webkit::-webkit-scrollbar{
+    width:0;
   }
   
   .content {
@@ -9,7 +12,7 @@
     margin-top: 1vw;
     max-height: 97%;
     margin-left: 15%;
-    background: rgb(233, 230, 230);
+    background: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 10px;
     overflow-y: auto;
@@ -29,7 +32,8 @@
     .content {
       width: 100%;
       height: 90vh;
-      margin-left: 0;
+      margin: 0;
+      padding: 0px;
       background: white;
     }
   }
