@@ -2,7 +2,7 @@ import "./Header.css";
 import {
   RiSearchLine
 } from "react-icons/ri";
-import Logo from "./logo.png";
+import Logo from "../../media/logo.png";
 
 const Header = () => {
   return (
