@@ -3,10 +3,12 @@ import {
   RiSearchLine
 } from "react-icons/ri";
 import Logo from "../../media/logo.png";
+import {Link} from "react-router-dom"
 
 const Header = () => {
   return (
     <header>
+      <Link to="/">
       <div className="logo">
         <img src={Logo} alt="logo" />
         <div className="logo-name">
@@ -15,6 +17,7 @@ const Header = () => {
           ACTIVE
         </div>
       </div>
+      </Link>
       <div className="search-bar">
         <input placeholder="search videos" />
         <RiSearchLine className="icon" />
