@@ -1,7 +1,5 @@
 import "./Header.css";
-import {
-  RiSearchLine
-} from "react-icons/ri";
+
 import Logo from "../../media/logo.png";
 import {Link} from "react-router-dom"
 
@@ -18,12 +16,10 @@ const Header = () => {
         </div>
       </div>
       </Link>
-      <div className="search-bar">
-        <input placeholder="search videos" />
-        <RiSearchLine className="icon" />
-      </div>
+      
       <div className="header-menu">
-        <button>Log in</button>
+        <div className ="login-btn"><Link to="/login" >Log in</Link></div>
+        
       </div>
     </header>
   );

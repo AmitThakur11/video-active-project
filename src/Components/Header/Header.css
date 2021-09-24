@@ -2,10 +2,10 @@ header {
     height: 10vh;
     padding: 2px;
     display: flex;
-  
-    width: 100%;
+    align-self: center;
+    width: 95%;
     background: white;
-  
+    z-index: 9999;
     justify-content: space-between;
     position: fixed;
     top: 0;
@@ -22,12 +22,10 @@ header {
     flex-grow: 0;
     height:100%;
     background: #ff7045;
-    justify-content: center;
     place-items: center;
     display: flex;
     width: fit-content;
     border-radius: 5px;
-    margin-left: 20px;
     cursor: pointer;
   }
   .logo > img {
@@ -46,60 +44,32 @@ header {
     letter-spacing: 2px;
     color: #ff7045;
   }
-  .search-bar {
-    flex-grow: 3;
-    justify-content: center;
-    place-items: center;
-    display: flex;
-  }
-  .search-icon {
-    background: #ff7045;
-    font-size: 28px;
-  }
-  .search-bar > input {
-    width: 50%;
-    height: 35px;
-    outline: none;
-    font-size: 20px;
-    padding: 5px;
-    border: 0;
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  }
-  .search-bar > input:focus {
-    transform: scale(1.03);
-  }
+  
   
   .header-menu {
-    flex-grow: 0.5;
     justify-content: center;
     place-items: center;
     display: flex;
   }
-  
-  .header-menu > button {
-    background-color: #ffffff;
-    padding: 4px 7px;
-    background: #414952;
-    font-weight: 600;
-  
-    font-size: 16px;
-    border: 0;
-    color: white;
-    margin-right: 5px;
+
+  .login-btn{
+    background: grey;
+    padding:6px 10px;
+    color:white;
+    font-weight: 500;
+
   }
-  .header-menu > button:hover {
-    background-color: cornflowerblue;
-    color: black;
-    transform: scale(1.1);
-    transition: 0.2s ease-in-out;
+  .login-btn:active{
     cursor: pointer;
+    background: black;
+    transform : scale(0.9);
   }
-  
   @media (max-width: 640px) {
-    .logo {
-      margin: 0;
+    header{
+      height: 8vh;
+    }
+    a > .logo {
+      margin-left: 0;
     }
   
     .search-bar {
