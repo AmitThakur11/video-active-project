@@ -1,17 +1,23 @@
-import {createContext , useContext , useState } from "react";
-
+import {createContext , useContext , useState , useEffect } from "react";
+import { userApiAction } from "../../apiCalls";
 export const authContext = createContext();
 
 
 export default function AuthProvider({children}){
+    
+
+
     const initialUser = {
         username : "",
         email : "",
         password : "",
         cpassword : ""
     }
+
+    
     const [userInput , setUserInput] = useState(initialUser);
-    const 
+    const [isLogin ,setLogin] = useState(false)
+    
 
     const getInput = (e)=>{
         const {name , value} = e.target
@@ -20,15 +26,15 @@ export default function AuthProvider({children}){
         })
     }
 
-    const login = ()=>{
-        try{
+    useEffect(()=>{
+        if(localStorage.getItem("token"))
+        return userApiAction.loadUserData(setLogin)
 
-        }catch(error){
+    },[isLogin])
 
-        }
-    }
+   
 
-    return <authContext.Provider value ={{getInput}}>
+    return <authContext.Provider value ={{getInput, userInput, isLogin : isLogin , setLogin}}>
         {children}
         </authContext.Provider>
 

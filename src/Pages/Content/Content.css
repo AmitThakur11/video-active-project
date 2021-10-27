@@ -1,6 +1,7 @@
 .content-container {
     margin-top: 10vh;
     display: flex;
+    height:100%;
     
   }
   .content::-webkit::-webkit-scrollbar{

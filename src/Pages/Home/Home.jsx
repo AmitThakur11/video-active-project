@@ -1,8 +1,8 @@
 import HomeCard from "../../Components/Cards/HomeCard/HomeCard"
 import "./Home.css";
-import {
-  RiSearchLine
-} from "react-icons/ri";
+// import {
+//   RiSearchLine
+// } from "react-icons/ri";
 import {Link} from "react-router-dom"
 import {useData} from "../../context/dataContext/index"
 const Home =()=>{

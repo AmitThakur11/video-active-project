@@ -1,4 +1,4 @@
-import "./LikedVideo.css"
+import "./LikedVideos.css"
 
 const LikedVideos =()=>{
     return(

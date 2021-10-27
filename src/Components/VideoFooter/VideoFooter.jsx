@@ -1,5 +1,5 @@
 import "./VideoFooter.css"
-
+import { userApiAction } from "../../apiCalls";
 import {
     RiSendPlaneLine,
     RiThumbUpLine,
@@ -11,7 +11,8 @@ import {
 
 
 const VideoFooter =({videoId})=>{
-  const {videoList} = useData();
+  const {videoList  , userDispatch , setLoading} = useData();
+  const {addVideoInLike} = userApiAction
 
   const video =  videoList.find((video)=>video._id === videoId);
   console.log(video)
@@ -26,7 +27,7 @@ const VideoFooter =({videoId})=>{
           </section>
           <section className="video-action">
             <div>
-              <RiThumbUpLine className="icon" />
+              <RiThumbUpLine className="icon" onClick = {()=>addVideoInLike(video._id , userDispatch , setLoading)} />
             </div>
             <div>
               <RiThumbDownLine className="icon" />

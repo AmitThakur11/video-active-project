@@ -1,0 +1,24 @@
+.loaderContainer{
+    display: flex;
+    margin:auto;
+    height: 100vh;
+    width:100vw;
+    background: rgb(239, 238, 238);
+   
+}
+.loaderContainer img{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    animation: rotation 2s infinite linear;
+
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
