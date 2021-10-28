@@ -30,13 +30,14 @@
   }
   .hv-author-img {
     grid-area: author-img;
-    display: grid;
+    display: flex;
     place-items: center;
+    justify-content: center;
     border-radius: 50%;
     margin: 2px;
   }
   .hv-author-img > img {
-    height: 80%;
+    height: 40px;
     border-radius: 50%;
   }
   .hv-title {
