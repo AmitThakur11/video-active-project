@@ -34,19 +34,19 @@ export default function DataProvider({children}){
     }
 
     const [user , userDispatch] = useReducer(userReducer , initialUserState)
-    useEffect(() => {
-        (async()=>{
-            try{
-                const {data} = await axios.get("/video");
-                setVideoList(data.payload)
+    // useEffect(() => {
+    //     (async()=>{
+    //         try{
+    //             const {data} = await axios.get("/video");
+    //             setVideoList(data.payload)
 
-            }catch(error){
+    //         }catch(error){
 
-            }
+    //         }
 
-        })()
+    //     })()
         
-    },[])
+    // },[])
 
 
     return <dataContext.Provider value ={{videoList , setVideoList , loading , setLoading , user , userDispatch}}>

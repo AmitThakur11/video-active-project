@@ -12,6 +12,7 @@ import  LikedCard from "../../Components/Cards/LikeVideoCard/index"
 const PlayVideo = () => {
     const { id } = useParams()
     const { videoList } = useData() 
+    console.log(videoList)
     const [playlistModal , setPlaylistModal] = useState(false)
     const [createplaylist , setCreatePlaylist] = useState(false)
     const [playlist,setPlaylist] = useState({
@@ -19,7 +20,7 @@ const PlayVideo = () => {
         video : ""
 
     })
-    const videoData = videoList?.find((video)=> video._id === id)
+    const videoData = videoList.find((video)=> video._id === id)
     return (
         <section className="play-video-container">
             <div className="video-container">
