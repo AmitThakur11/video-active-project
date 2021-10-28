@@ -1,5 +1,4 @@
 import {GrAddCircle} from "react-icons/gr";
-import { useEffect } from "react";
 import "./style.css"
 export default function Playlist({setCreatePlaylist , setPlaylistModal , playlist }){
 
