@@ -30,8 +30,8 @@
   }
   .hv-author-img {
     grid-area: author-img;
-    /* display: grid;
-    place-items: center; */
+    display: grid;
+    place-items: center;
     border-radius: 50%;
     margin: 2px;
   }
