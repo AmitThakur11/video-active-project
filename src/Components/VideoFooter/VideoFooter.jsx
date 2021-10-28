@@ -10,7 +10,7 @@ import {
 
 
 const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
-  const {videoList  , userDispatch , setLoading} = useData();
+  const {user : {videoList}  , userDispatch , setLoading} = useData();
   const {addVideoInLike} = userApiAction
 
   const video =  videoList.find((video)=>video._id === videoId);

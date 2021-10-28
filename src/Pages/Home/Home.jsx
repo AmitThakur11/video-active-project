@@ -6,7 +6,7 @@ import "./Home.css";
 import {Link} from "react-router-dom"
 import {useData} from "../../context/dataContext/index"
 const Home =()=>{
-  const {videoList} = useData()
+  const {user : {videoList}} = useData()
     return(
       <>
       {/* <div className="search-bar">

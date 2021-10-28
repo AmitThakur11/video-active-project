@@ -11,7 +11,9 @@ import  LikedCard from "../../Components/Cards/LikeVideoCard/index"
 
 const PlayVideo = () => {
     const { id } = useParams()
-    const { videoList } = useData() 
+    const { user : {videoList} } = useData() 
+    console.log("user : ")
+    console.log(videoList)
     console.log(videoList)
     const [playlistModal , setPlaylistModal] = useState(false)
     const [createplaylist , setCreatePlaylist] = useState(false)
@@ -20,10 +22,14 @@ const PlayVideo = () => {
         video : ""
 
     })
-    const videoData = videoList.find((video)=> video._id === id)
+    
+        const videoFinder = (videoList , id)=>videoList.find((video)=> video._id === id) ;
+        const videoData = videoFinder(videoList , id)
+
     return (
         <section className="play-video-container">
-            <div className="video-container">
+            {videoList.length >0 ?
+                <><div className="video-container">
                 <div key = {videoData?._id} className="video">
                             <ReactPlayer url={videoData?.url} width = "100%" height="100%"  playing  light={false} controls />
                             </div>
@@ -37,7 +43,7 @@ const PlayVideo = () => {
                 videoList.map((video)=>{
                     return  <LikedCard video = {video} show = {false}  />
                 })
-}</div>
+}</div></>:<div>LOADING</div>}
             
           {playlistModal && <PlaylistModal setPlaylistModal = {setPlaylistModal} setCreatePlaylist = {setCreatePlaylist} setPlaylist = {setPlaylist}  />}
           {(createplaylist && !playlistModal)  && <Createplaylist setCreatePlaylist = {setCreatePlaylist} setPlaylist = {setPlaylist} playlist = {playlist} />}

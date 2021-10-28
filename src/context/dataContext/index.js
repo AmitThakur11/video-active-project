@@ -4,9 +4,10 @@ export const dataContext = createContext();
 
 
 export default function DataProvider({children}){
-    const [videoList , setVideoList] =useState([])
+    // const [videoList , setVideoList] =useState([])
     const [loading, setLoading] = useState(false);
     const initialUserState = {
+        videoList : [],
         username : "",
         likedVideos : [],
         history : [],
@@ -17,6 +18,9 @@ export default function DataProvider({children}){
         const {type,payload} = action
        
         switch(type){
+            case "LOAD VIDEOLIST":{
+                return {...user , videoList : payload}
+            }
             case "UPDATE LIKE" : {
                 console.log(payload)
                 return {...user , likedVideos : payload }
@@ -49,7 +53,7 @@ export default function DataProvider({children}){
     // },[])
 
 
-    return <dataContext.Provider value ={{videoList , setVideoList , loading , setLoading , user , userDispatch}}>
+    return <dataContext.Provider value ={{loading , setLoading , user , userDispatch}}>
         {children}
         </dataContext.Provider>
 
