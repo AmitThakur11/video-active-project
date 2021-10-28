@@ -24,7 +24,7 @@ function App() {
       console.log(data)
       setVideoList(data.payload)
     })()
-  },[userDispatch])
+  },[setVideoList])
 
   return (
     <>{loading ? <Loader/>:
