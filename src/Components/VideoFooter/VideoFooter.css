@@ -26,14 +26,17 @@
 }
 
 .video-action {
-  width: 40%;
+  width: 20%;
+  min-width: fit-content;
+  line-height: 1.2em;
+  padding:3px 7px;
+  color:#de4726  ;
+  border : 2px  solid #de4726  ;
+  border-radius: 5px;
   height: min-content;
-  background-color: #fff;
+  background-color: rgb(244, 244, 244);
   display: flex;
-  justify-content: space-around;
-  place-items: center;
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
-    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 .icon {

@@ -10,6 +10,10 @@
 
     
 }
+.recommendedVideo{
+    padding: 0px 10px;
+}
+
 @media(max-width:920px){
     .play-video-container{
         grid-template-columns: 100%;

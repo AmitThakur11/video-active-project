@@ -3,19 +3,17 @@ import { userApiAction } from "../../apiCalls";
 import {
     RiSendPlaneLine,
     RiThumbUpLine,
-    RiThumbDownLine,
     RiPlayList2Line,
   } from "react-icons/ri";
 
   import { useData } from "../../context/dataContext/index"
 
 
-const VideoFooter =({videoId})=>{
+const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
   const {videoList  , userDispatch , setLoading} = useData();
   const {addVideoInLike} = userApiAction
 
   const video =  videoList.find((video)=>video._id === videoId);
-  console.log(video)
     return(
         <section className="video-footer">
         <section className="title">{video?.title}</section>
@@ -30,13 +28,18 @@ const VideoFooter =({videoId})=>{
               <RiThumbUpLine className="icon" onClick = {()=>addVideoInLike(video._id , userDispatch , setLoading)} />
             </div>
             <div>
-              <RiThumbDownLine className="icon" />
-            </div>
-            <div>
               <RiSendPlaneLine className="icon" />
             </div>
             <div>
-              <RiPlayList2Line className="icon" />
+              <RiPlayList2Line className="icon" onClick = {()=>{
+                setPlaylistModal((modal => !modal))
+                setPlaylist((playlist)=>{
+                  return {...playlist , video : video._id}
+                })
+                console.log(playlist)
+
+              }
+                }/>
             </div>
           </section>
         </section>

@@ -11,7 +11,6 @@ const doLogin = async (userInput, state, navigate, setLogin) => {
       navigate(state ? state?.from : "/");
       return console.log(data.msg);
     }
-    console.log("failed");
   } catch (error) {
     console.log(error.response.data.msg);
   }
@@ -32,13 +31,11 @@ const doRegister = async (userInput, state, navigate, setLogin) => {
 const loadUserData = async (setLogin) => {
   try {
     const { data } = await axios.get("/user");
-    console.log(data.userData);
     if (data.success) {
       setLogin(true);
     }
   } catch (error) {
     setLogin(false);
-    console.log(error.response.data.msg);
   }
 };
 const addVideoInLike = async (id, userDispatch) => {
@@ -48,7 +45,6 @@ const addVideoInLike = async (id, userDispatch) => {
     const {data :{msg,success,userData : {likedVideos}}} = await axios.post(`/user/like/${id}`);
     if(success){
       userDispatch({type : "UPDATE LIKE" , payload :likedVideos })
-      
       return toast.success(msg)
     }
     toast(msg)
@@ -62,6 +58,7 @@ const addVideoInLike = async (id, userDispatch) => {
 
 const addVideoInDislike = async () => {
   try {
+    console.log("liked")
   } catch (error) {}
 };
 
@@ -74,8 +71,10 @@ const removeVideoFromHistory = async () => {
   try {
   } catch (error) {}
 };
-const createPlayist = async () => {
+const createPlayist = async (playlist) => {
   try {
+    const response = await axios.post(`/user/${playlist.video}/playlist`, {newTitle : playlist.title});
+    console.log(response)
   } catch (error) {}
 };
 

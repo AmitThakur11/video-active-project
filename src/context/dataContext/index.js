@@ -18,7 +18,7 @@ export default function DataProvider({children}){
        
         switch(type){
             case "UPDATE LIKE" : {
-                console.log("clicked")
+                console.log(payload)
                 return {...user , likedVideos : payload }
             }
             case "UPDATE HISTORY" : {
@@ -34,7 +34,6 @@ export default function DataProvider({children}){
     }
 
     const [user , userDispatch] = useReducer(userReducer , initialUserState)
-    console.log(`userDISPATCH : ${userDispatch}`)
     useEffect(() => {
         (async()=>{
             try{
