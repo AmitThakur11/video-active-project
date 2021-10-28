@@ -46,10 +46,10 @@ export default function DataProvider({children}){
 
         })()
         
-    }, [])
+    },[])
 
 
-    return <dataContext.Provider value ={{videoList , loading , setLoading , user , userDispatch}}>
+    return <dataContext.Provider value ={{videoList , setVideoList , loading , setLoading , user , userDispatch}}>
         {children}
         </dataContext.Provider>
 

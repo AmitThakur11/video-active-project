@@ -19,12 +19,12 @@ const PlayVideo = () => {
         video : ""
 
     })
-    const videoData = videoList.find((video)=> video._id === id)
+    const videoData = videoList?.find((video)=> video._id === id)
     return (
         <section className="play-video-container">
             <div className="video-container">
-                <div key = {id} className="video">
-                            <ReactPlayer url={videoData.url} width = "100%" height="100%"  playing  light={false} controls />
+                <div key = {videoData?._id} className="video">
+                            <ReactPlayer url={videoData?.url} width = "100%" height="100%"  playing  light={false} controls />
                             </div>
                     
                 
