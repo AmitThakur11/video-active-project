@@ -14,7 +14,6 @@ const PlayVideo = () => {
     const { user: { videoList } } = useData()
     console.log("user : ")
     console.log(videoList)
-    console.log(videoList)
     const [playlistModal, setPlaylistModal] = useState(false)
     const [createplaylist, setCreatePlaylist] = useState(false)
     const [playlist, setPlaylist] = useState({
