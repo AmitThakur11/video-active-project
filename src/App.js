@@ -9,7 +9,7 @@ import Loader from "./Components/Loader/index"
 
 function App() {
   const {isLogin} = useAuth()
-  const {loading ,userDispatch , setVideoList } = useData()
+  const {loading ,userDispatch  } = useData()
   useEffect(()=>{
     (()=>{
       axios.defaults.baseURL = "https://video-lib-api.herokuapp.com/"
@@ -17,7 +17,7 @@ function App() {
     })()
 
   },[isLogin,userDispatch]);
-  
+
   return (
     <>{loading ? <Loader/>:
     <div className="App">
