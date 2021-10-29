@@ -1,9 +1,11 @@
 import { GrAddCircle , GrCheckboxSelected } from "react-icons/gr";
 import "./style.css"
+import {useState} from "react";
 import { useData } from "../../context/dataContext/index"
 import { userApiAction } from "../../apiCalls";
 export default function PlaylistModal({ setCreatePlaylist, setPlaylistModal, playlist }) {
-  const { user : {playlists} , userDispatch} = useData()
+  const { user : {playlists} , userDispatch} = useData();
+  const [check , setCheck] = useState(false)
 
 
   return (
@@ -15,8 +17,9 @@ export default function PlaylistModal({ setCreatePlaylist, setPlaylistModal, pla
               playlists.map((list) => {
                 return (
                   <label>
-                    <input  type="checkbox" value={list.title} checked = {list.videos.find(({_id})=>_id === playlist.video)} onClick = {(e)=>{
-                      e.target.checked? userApiAction.createPlayist({title : e.target.value , video : playlist.video}, userDispatch): console.log("already clicked")} }/>
+                    <input  type="checkbox" value={list.title} checked = {list.videos.find(({_id})=>_id === playlist.video)} onChange= {(e)=>{
+                      e.target.checked? userApiAction.createPlayist({title : e.target.value , video : playlist.video}, userDispatch): userApiAction.removeFromPlaylist({playlist : list._id, videoId : playlist.video ,userDispatch : userDispatch})
+                      console.log(e.target.checked)} }/>
                     <span>{list.title}</span>
                   </label>
                 )

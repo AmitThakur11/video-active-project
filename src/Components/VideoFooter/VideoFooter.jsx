@@ -25,7 +25,7 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
           </section>
           <section className="video-action">
             <div>
-              <RiThumbUpLine className="icon" onClick = {()=>addVideoInLike(video._id , userDispatch , setLoading)} />
+              <RiThumbUpLine className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch})} />
             </div>
             <div>
               <RiSendPlaneLine className="icon" />

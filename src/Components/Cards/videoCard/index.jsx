@@ -2,7 +2,7 @@ import "./style.css"
 import {RiDeleteBin6Line} from "react-icons/ri"
 import {useNavigate} from "react-router-dom"
 import { useData } from "../../../context/dataContext"
-export default function VideoCard({video , show , videoAction}){
+export default function VideoCard({video , show , videoAction , playlist}){
     const navigate = useNavigate()
     const {userDispatch} = useData()
   return(
@@ -19,7 +19,7 @@ export default function VideoCard({video , show , videoAction}){
         </div>
       </div>
      
-      {show && <button className ="remove" onClick = {()=>videoAction(video._id,userDispatch)}><RiDeleteBin6Line/></button>}
+      {show && <button className ="remove" onClick = {()=>videoAction({videoId : video._id, playlist : playlist ,  userDispatch : userDispatch})}><RiDeleteBin6Line/></button>}
     </section>
     </>
   )

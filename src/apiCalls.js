@@ -41,11 +41,13 @@ const loadUserData = async (userDispatch) => {
     
   }
 };
-const addVideoInLike = async (id, userDispatch) => {
+const addVideoInLike = async ({videoId, userDispatch}) => {
 
   
   try {
-    const {data :{msg,success,userData : {likedVideos}}} = await axios.post(`/user/like/${id}`);
+    console.log(videoId)
+    const {data :{msg,success,userData : {likedVideos}}} = await axios.post(`/user/like/${videoId}`);
+    
     if(success){
       userDispatch({type : "UPDATE LIKE" , payload :likedVideos })
       return toast.success(msg)
@@ -74,7 +76,7 @@ const addVideoToHistory = async (videoId , userDispatch) => {
   
 };
 
-const removeVideoFromHistory = async (videoId,userDispatch) => {
+const removeVideoFromHistory = async ({videoId,userDispatch}) => {
   try {
     const {data} = await axios.delete(`/user/history/${videoId}`);
     if(data.success){
@@ -111,12 +113,17 @@ const removePlaylist = async () => {
   } catch (error) {}
 };
 
-const removeFromPlaylist = async(playlistId,videoId)=>{
+const removeFromPlaylist = async({videoId,playlist,userDispatch})=>{
   try{
-    const {data} = await axios.delete(`/user/playlist/${playlistId}/video/${videoId}`)
-    console.log(data)
+    const {data} = await axios.delete(`/user/playlist/${playlist}/video/${videoId}`)
+    if(data.success){
+      userDispatch({type : "UPDATE PLAYLIST" , payload : data.userData.playlists})
+      toast.success("playlist Update")
+
+    }
 
   }catch(error){
+    toast.error(error.response.data.msg)
 
   }
 }
@@ -135,5 +142,6 @@ export const userApiAction = {
   createPlayist,
   removeHistory,
   removePlaylist,
+  removeFromPlaylist,
   updatePlaylist
 };

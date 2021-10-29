@@ -10,9 +10,8 @@ const Playlist = ()=>{
             <div className ="playlist__items">
                 {
                     playlists.map((playlist)=>{
-                        return <Link to = {`/playlist/${playlist._id}`}>
-                            <PlaylistCard playlist = {playlist} />
-                            </Link>
+                        return<PlaylistCard playlist = {playlist} />
+                            
 
                     })
                 }
