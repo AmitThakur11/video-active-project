@@ -103,14 +103,28 @@ const createPlayist = async (playlist , userDispatch) => {
   }
 };
 
-const removeHistory = async () => {
+const removeHistory = async (userDispatch) => {
   try {
-  } catch (error) {}
+    const {data} = await axios.delete("/user/history/remove");
+    if(data.success){
+      userDispatch({type : "UPDATE HISTORY" , payload : data.userData.history})
+      toast.success("History cleared")
+    }
+  } catch (error) {
+    toast.error(error.response.data.msg)
+  }
 };
 
-const removePlaylist = async () => {
+const removePlaylist = async (playlistId, userDispatch) => {
   try {
-  } catch (error) {}
+    const {data} = await axios.delete(`/user/playlist/${playlistId}`);
+    if(data.success){
+      userDispatch({type:"UPDATE PLAYLIST" , payload :data.userData.playlists})
+      toast.success("Playlist removed")
+    }
+  } catch (error) {
+    toast.error(error.response.data.msg)
+  }
 };
 
 const removeFromPlaylist = async({videoId,playlist,userDispatch})=>{
