@@ -1,29 +1,47 @@
-import {GrAddCircle} from "react-icons/gr";
+import { GrAddCircle , GrCheckboxSelected } from "react-icons/gr";
 import "./style.css"
-export default function Playlist({setCreatePlaylist , setPlaylistModal , playlist }){
+import { useData } from "../../context/dataContext/index"
+import { userApiAction } from "../../apiCalls";
+export default function PlaylistModal({ setCreatePlaylist, setPlaylistModal, playlist }) {
+  const { user : {playlists} , userDispatch} = useData()
 
-  return(
+
+  return (
     <>
-    <div className ="playlistModal__container">
-    <div className ="playlistModal">
-      <div className ="playlistItems">
-      <label>
-        <input  type ="checkbox" value = "playlist 1"/>
-        <span>Playlist 1</span>
-      </label>
-      
-      </div>
-      <button onClick ={()=>{
-        setPlaylistModal(false)
-        setCreatePlaylist(true)
+      <div className="playlistModal__container">
+        <div className="playlistModal">
+          <div className="playlistItems">
+            {
+              playlists.map((list) => {
+                return (
+                  <label>
+                    <input  type="checkbox" value={list.title} checked = {list.videos.find(({_id})=>_id === playlist.video)} onClick = {(e)=>{
+                      e.target.checked? userApiAction.createPlayist({title : e.target.value , video : playlist.video}, userDispatch): console.log("already clicked")} }/>
+                    <span>{list.title}</span>
+                  </label>
+                )
+              })
+            }
 
-      }} className ="playlistCreate__btn">
-      <GrAddCircle/>
-      New
-      </button>
-      
-    </div>
-    </div>
+          </div>
+          <div className ="playlistModal__btn">
+          <button onClick={() => {
+            setPlaylistModal(false)
+            setCreatePlaylist(true)
+
+          }} className="playlistCreate__btn">
+            <GrAddCircle />
+            New
+          </button>
+          <button  onClick ={()=>{
+            setPlaylistModal(false)
+          }} className="playlistDone__btn">
+            <GrCheckboxSelected/>
+            Done</button>
+          </div>
+
+        </div>
+      </div>
     </>
   )
 }

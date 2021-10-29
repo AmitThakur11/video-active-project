@@ -10,6 +10,7 @@ import Signup from "../Signup/Signup";
 import PlayVideo from "../PlayVideo/PlayVideo";
 import PrivateRoute from "../../Components/privateRoute";
 import Profile from "../profile/profile";
+import PlaylistDetails from "../../Pages/Playlist/PlaylistDetails"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 const Content = () => {
@@ -24,11 +25,22 @@ const Content = () => {
           <PrivateRoute path ="/likedvideos" element={<LikedVideos/>}/>
           <PrivateRoute path ="/history" element = {<History/>}/>
           <PrivateRoute path = "/playlist" element = {<Playlist/>}/>
+          <PrivateRoute path = "/playlist/:id" element = {<PlaylistDetails/>}/>
           <PrivateRoute path = "/profile" element = {<Profile/>}/>
           <Route path = "/login" element={<Login/>}/>
           <Route path ="/signup" element ={<Signup/>}/>
         </Routes>
-        <ToastContainer/>
+        <ToastContainer 
+        position="top-right"
+        autoClose={1500}
+        width = "10px"
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss = {false}
+        draggable
+        pauseOnHover />
       </div>
     </section>
   );

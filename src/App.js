@@ -5,25 +5,40 @@ import {useEffect} from "react"
 import axios from "axios"
 import {useAuth} from "./context/authContext/index"
 import {useData} from "./context/dataContext/index"
+import { userApiAction } from "./apiCalls"
 import Loader from "./Components/Loader/index"
 
 function App() {
-  const {isLogin} = useAuth()
+  const {setLogin} = useAuth()
   const {loading ,userDispatch } = useData()
   useEffect(()=>{
     (()=>{
       axios.defaults.baseURL = "https://video-lib-api.herokuapp.com/"
-      axios.defaults.headers.common["Authorization"] = localStorage.getItem('token');
+      const token = localStorage.getItem('token')
+      axios.defaults.headers.common["Authorization"] = token ;
+      if(token){
+        setLogin(true)
+      }
     })()
 
-  },[isLogin,userDispatch]);
+  },[setLogin,userDispatch]);
 
   useEffect(()=>{
     (async()=>{
       const {data} = await axios.get("/video");
-      userDispatch({type : "LOAD VIDEOLIST", payload : data.payload})
+      userDispatch({type : "LOAD VIDEOLIST", payload : data.payload});
+      userApiAction.loadUserData(userDispatch)
     })()
   },[userDispatch])
+
+  // useEffect(()=>{
+  //   (async()=>{
+  //     const {data}= await axios.get
+
+  //   })()
+  // })
+
+
 
   return (
     <>{loading ? <Loader/>:

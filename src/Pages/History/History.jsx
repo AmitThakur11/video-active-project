@@ -1,8 +1,26 @@
 import "./History.css"
 
-const History =()=>{
+import VideoCard from "../../Components/Cards/videoCard/index"
+import {useData} from "../../context/dataContext/index"
+import { userApiAction } from "../../apiCalls"
+const HistoryVideos =()=>{
+    const {user : {history}} = useData()
     return(
-        <section>History</section>
+        <>
+        <section>
+            <div className ="likedVideo__title">History</div>
+            <div className ="likedVideo__items">
+                {
+                    history.map((video)=>{
+                        return <VideoCard video = {video} show = {true}  videoAction = {userApiAction.removeVideoFromHistory}/>
+
+                    })
+                }
+
+
+            </div>
+        </section>
+        </>
     )
 }
-export default History
+export default HistoryVideos

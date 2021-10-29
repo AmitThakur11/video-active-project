@@ -1,5 +1,5 @@
-import {createContext , useContext , useState , useEffect } from "react";
-import { userApiAction } from "../../apiCalls";
+import {createContext , useContext , useState } from "react";
+
 export const authContext = createContext();
 
 
@@ -26,11 +26,11 @@ export default function AuthProvider({children}){
         })
     }
 
-    useEffect(()=>{
-        if(localStorage.getItem("token"))
-        return userApiAction.loadUserData(setLogin)
+    // useEffect(()=>{
+    //     if(localStorage.getItem("token"))
+    //     return userApiAction.loadUserData(setLogin)
 
-    },[isLogin])
+    // },[isLogin])
 
    
 

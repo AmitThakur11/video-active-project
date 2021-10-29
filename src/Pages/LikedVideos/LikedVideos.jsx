@@ -1,5 +1,6 @@
 import "./LikedVideos.css"
-import LikedCard from "../../Components/Cards/LikeVideoCard/index"
+import VideoCard from "../../Components/Cards/videoCard/index"
+import { userApiAction } from "../../apiCalls"
 import {useData} from "../../context/dataContext/index"
 const LikedVideos =()=>{
     const {user : {likedVideos}} = useData()
@@ -10,7 +11,7 @@ const LikedVideos =()=>{
             <div className ="likedVideo__items">
                 {
                     likedVideos.map((video)=>{
-                        return <LikedCard video = {video} show = {true} />
+                        return <VideoCard video = {video} show = {true}  videoAction = {userApiAction.addVideoInLike} />
 
                     })
                 }

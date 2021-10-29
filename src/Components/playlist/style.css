@@ -24,11 +24,16 @@
   .playlistItems label{
     margin : 2px 0px
   }
-  .playlistCreate__btn{
+  .playlistModal__btn{
+    display: flex;
+  }
+  .playlistCreate__btn,
+  .playlistDone__btn{
     display: flex;
     place-items: center;
     width:100%;
     padding:5px 7px ;
+    margin:1px;
     align-self: center;
     border :0px;
     font-size : 18px;

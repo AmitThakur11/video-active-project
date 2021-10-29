@@ -21,6 +21,13 @@ export default function DataProvider({children}){
             case "LOAD VIDEOLIST":{
                 return {...user , videoList : payload}
             }
+            case "LOAD USER":{
+                return {...user , username : "test 0",
+                likedVideos : payload.likedVideos,
+                history : payload.history,
+                playlists : payload.playlists
+                }
+            }
             case "UPDATE LIKE" : {
                 console.log(payload)
                 return {...user , likedVideos : payload }
