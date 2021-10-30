@@ -38,6 +38,9 @@ export default function DataProvider({children}){
             case "UPDATE PLAYLIST" : {
                 return {...user , playlists : payload}
             }
+            case "LOG OUT":{
+                return {...user , likedVideos :[],playlists :[],history:[]}
+            }
             default:
                 return user
         }

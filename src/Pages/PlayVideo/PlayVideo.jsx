@@ -8,12 +8,14 @@ import ReactPlayer from "react-player";
 import { useData } from "../../context/dataContext/index"
 import LikedCard from "../../Components/Cards/videoCard/index"
 import { userApiAction } from "../../apiCalls";
+import { useAuth } from "../../context/authContext";
 
 
 const PlayVideo = () => {
     const { id } = useParams()
     const { user: { videoList } , userDispatch } = useData()
     console.log("user : ")
+    const {isLogin} = useAuth()
     console.log(videoList)
     const [playlistModal, setPlaylistModal] = useState(false)
     const [createplaylist, setCreatePlaylist] = useState(false)
@@ -24,9 +26,9 @@ const PlayVideo = () => {
     })
 
     useEffect(()=>{
-        userApiAction.addVideoToHistory(id, userDispatch)
+        isLogin && userApiAction.addVideoToHistory(id, userDispatch)
 
-    },[id, userDispatch])
+    },[id, userDispatch,isLogin])
 
 
 

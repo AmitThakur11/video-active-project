@@ -7,10 +7,13 @@ import {
   } from "react-icons/ri";
 
   import { useData } from "../../context/dataContext/index"
+import { toast } from "react-toastify";
+import { useAuth } from "../../context/authContext";
 
 
 const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
   const {user : {videoList}  , userDispatch} = useData();
+  const {isLogin} = useAuth()
   const {addVideoInLike} = userApiAction
 
   const video =  videoList.find((video)=>video._id === videoId);
@@ -32,11 +35,11 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
             </div>
             <div>
               <RiPlayList2Line className="icon" onClick = {()=>{
-                setPlaylistModal((modal => !modal))
+                isLogin ?setPlaylistModal((modal => !modal)) : toast.error("First Login")
                 setPlaylist((playlist)=>{
                   return {...playlist , video : video._id}
                 })
-                console.log(playlist)
+                
 
               }
                 }/>

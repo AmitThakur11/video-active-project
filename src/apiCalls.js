@@ -2,15 +2,17 @@ import axios from "axios";
 import { toast } from "react-toastify";
 // import Loader from "./Components/Loader";
 
-const doLogin = async (userInput, state, navigate, setLogin) => {
+const doLogin = async (userInput, state, navigate, setLogin,userDispatch) => {
   try {
     const { email, password } = userInput;
     const { data } = await axios.post("auth/login", { email, password });
     if (data.success) {
       setLogin(true);
       localStorage.setItem("token", data.token);
+      axios.defaults.headers.common["Authorization"] = localStorage.getItem('token')
       navigate(state ? state?.from : "/");
-      
+      loadUserData(userDispatch)
+      toast.success("User logged in ")
     }
   } catch (error) {
     console.log(error.response.data.msg);
@@ -52,12 +54,8 @@ const addVideoInLike = async ({videoId, userDispatch}) => {
       userDispatch({type : "UPDATE LIKE" , payload :likedVideos })
       return toast.success(msg)
     }
-    toast(msg)
-
-
-    
   } catch (error) {
-    toast(error)
+    toast.error(error.response.data.msg)
   }
 };
 
