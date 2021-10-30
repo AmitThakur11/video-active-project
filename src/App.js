@@ -14,6 +14,7 @@ function App() {
     (()=>{
       axios.defaults.baseURL = "https://video-lib-api.herokuapp.com/"
       if(localStorage.getItem('token')){
+        axios.defaults.headers.common["Authorization"] = localStorage.getItem('token')
         setLogin(true)
       }
     })()
@@ -24,6 +25,7 @@ function App() {
     (async()=>{
       const {data} = await axios.get("/video");
       userDispatch({type : "LOAD VIDEOLIST", payload : data.payload});
+      console.log(data.payload)
       userApiAction.loadUserData(userDispatch)
     })()
   },[userDispatch])

@@ -4,6 +4,7 @@ import {
     RiSendPlaneLine,
     RiThumbUpLine,
     RiPlayList2Line,
+    RiThumbUpFill
   } from "react-icons/ri";
 
   import { useData } from "../../context/dataContext/index"
@@ -12,9 +13,11 @@ import { useAuth } from "../../context/authContext";
 
 
 const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
-  const {user : {videoList}  , userDispatch} = useData();
+  const {user : {videoList, likedVideos}  , userDispatch} = useData();
   const {isLogin} = useAuth()
   const {addVideoInLike} = userApiAction
+  const checkLike = likedVideos.find(({_id})=>_id === videoId);
+  
 
   const video =  videoList.find((video)=>video._id === videoId);
     return(
@@ -23,12 +26,12 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
         <section className="video-detail">
           <section className="video-views">
             <div>
-              <span style={{ color: "red" }}>{video?.views}</span> Views
+              <span style={{ color: "red" }}>{video?.views.length}</span> Views
             </div>
           </section>
           <section className="video-action">
             <div>
-              <RiThumbUpLine className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch})} />
+              {checkLike ? <RiThumbUpFill className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch})} />:<RiThumbUpLine className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch})} />}
             </div>
             <div>
               <RiSendPlaneLine className="icon" />
