@@ -6,10 +6,10 @@ import axios from "axios"
 import {useAuth} from "./context/authContext/index"
 import {useData} from "./context/dataContext/index"
 import { userApiAction } from "./apiCalls"
-import Loader from "./Components/Loader/index"
+
 function App() {
   const {setLogin} = useAuth()
-  const {loading ,userDispatch, setLoading } = useData()
+  const {userDispatch, setLoading } = useData()
   useEffect(()=>{
     (()=>{
       axios.defaults.baseURL = "https://video-lib-api.herokuapp.com/"
@@ -27,17 +27,10 @@ function App() {
       const {data} = await axios.get("/video");
       setLoading(false)
       userDispatch({type : "LOAD VIDEOLIST", payload : data.payload});
-      console.log(data.payload)
       userApiAction.loadUserData(userDispatch)
     })()
   },[userDispatch])
 
-  // useEffect(()=>{
-  //   (async()=>{
-  //     const {data}= await axios.get
-
-  //   })()
-  // })
 
 
 
