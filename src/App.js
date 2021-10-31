@@ -29,7 +29,7 @@ function App() {
       userDispatch({type : "LOAD VIDEOLIST", payload : data.payload});
       userApiAction.loadUserData(userDispatch)
     })()
-  },[userDispatch])
+  },[userDispatch,setLoading])
 
 
 
