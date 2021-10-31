@@ -11,14 +11,17 @@ import PlayVideo from "../PlayVideo/PlayVideo";
 import PrivateRoute from "../../Components/privateRoute";
 import Profile from "../profile/profile";
 import PlaylistDetails from "../../Pages/Playlist/PlaylistDetails"
+import Loader from "../../Components/Loader/index"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import { useData } from "../../context/dataContext";
 const Content = () => {
+  const {loading} = useData()
   
   return (
     <section className="content-container">
       <SideBar />
-      <div className="content">
+      {loading ? <Loader/>:<div className="content">
         <Routes>
           <Route path = "/" element ={<Home/>}></Route>
           <Route path = "/video/:id" element={<PlayVideo/>}/>
@@ -41,8 +44,9 @@ const Content = () => {
         pauseOnFocusLoss = {false}
         draggable
         pauseOnHover />
-      </div>
+      </div>}
     </section>
+    
   );
 };
 
