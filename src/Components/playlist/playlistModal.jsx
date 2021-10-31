@@ -5,9 +5,8 @@ import { useData } from "../../context/dataContext/index"
 import { userApiAction } from "../../apiCalls";
 export default function PlaylistModal({ setCreatePlaylist, setPlaylistModal, playlist }) {
   const { user : {playlists} , userDispatch} = useData();
-
-
-
+  const checkVideoInList =(list)=> list.videos.find(({_id})=>_id === playlist.video)
+  
   return (
     <>
       <div className="playlistModal__container">
@@ -17,7 +16,7 @@ export default function PlaylistModal({ setCreatePlaylist, setPlaylistModal, pla
               playlists.map((list) => {
                 return (
                   <label>
-                    <input  type="checkbox" value={list.title} checked = {list.videos.find(({_id})=>_id === playlist.video)} onChange= {(e)=>{
+                    <input  type="checkbox" value={list.title} checked = {checkVideoInList(list)?true:false} onChange= {(e)=>{
                       e.target.checked? userApiAction.createPlayist({title : e.target.value , video : playlist.video}, userDispatch): userApiAction.removeFromPlaylist({playlist : list._id, videoId : playlist.video ,userDispatch : userDispatch})
                       console.log(e.target.checked)} }/>
                     <span>{list.title}</span>

@@ -7,7 +7,7 @@ const LikedVideos =()=>{
     const {id} = useParams()
     const {user : {playlists}} = useData()
     const currentList = playlists.find(({_id})=>_id === id);
-    console.log(id)
+    console.log(currentList)
     return(
         <>
         <section>
@@ -15,7 +15,7 @@ const LikedVideos =()=>{
             <div className ="playlist__items">
                 {
                     currentList.videos.map((video)=>{
-                        return <VideoCard video = {video} show = {true} videoAction = {userApiAction.removeFromPlaylist} playlist = {{id : currentList._id}} />
+                        return <VideoCard video = {video} show = {true} videoAction = {userApiAction.removeFromPlaylist} playlist = {currentList._id} />
                     })
                 }
 

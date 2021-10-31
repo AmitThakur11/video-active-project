@@ -19,16 +19,28 @@ const doLogin = async (userInput, state, navigate, setLogin,userDispatch) => {
   }
 };
 
-const doRegister = async (userInput, state, navigate, setLogin) => {
+const doRegister = async (userInput, navigate) => {
   const { username, email, password, cpassword } = userInput;
   if (cpassword !== password) {
     return toast("Password doesn't match",username,email);
 
   }
 
+
   try {
+    const {data}= await axios.post("/auth/register",{ username ,
+    email,
+    password})
+    console.log(data.msg)
+    if(data.success){
+      console.log(data)
+      toast.success("Account created")
+      navigate("/login")
+    }
       
-  } catch (error) {}
+  } catch (error) {
+    toast.error(error)
+  }
 };
 
 const loadUserData = async (userDispatch) => {
@@ -121,12 +133,14 @@ const removePlaylist = async (playlistId, userDispatch) => {
       toast.success("Playlist removed")
     }
   } catch (error) {
-    toast.error(error.response.data.msg)
+    toast.error(error.response)
   }
 };
 
 const removeFromPlaylist = async({videoId,playlist,userDispatch})=>{
   try{
+    console.log(playlist)
+    console.log(videoId)
     const {data} = await axios.delete(`/user/playlist/${playlist}/video/${videoId}`)
     if(data.success){
       userDispatch({type : "UPDATE PLAYLIST" , payload : data.userData.playlists})

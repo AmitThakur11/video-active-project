@@ -1,8 +1,11 @@
-import "../../Pages/Login/style.css"
+import "./style.css"
 import SignupImg from "../../media/signUpImg.svg"
 import {useAuth} from "../../context/authContext/index"
+import { userApiAction } from "../../apiCalls";
+import { useNavigate } from "react-router-dom";
 const Signup = () => {
-  const {getInput} = useAuth()
+  const {getInput , userInput} = useAuth()
+  const navigate =useNavigate()
 
   return (
     <div className = "loginContainer">
@@ -16,7 +19,7 @@ const Signup = () => {
         <input name = "email" placeholder="-Email"  onChange = {(e)=>getInput(e)} />
         <input name = "password" type ="password"  placeholder="-Password"  onChange = {(e)=>getInput(e)}/>
         <input name = "cpassword" type ="password" placeholder="-Confirm password"  onChange = {(e)=>getInput(e)} />
-        <button  className="loginBox_btn">Register</button>
+        <button   className="loginBox_btn" onClick={()=>userApiAction.doRegister(userInput,navigate)}>Register</button>
         
         </div>
         </div>
