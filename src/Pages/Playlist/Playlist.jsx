@@ -1,10 +1,14 @@
 import "./Playlist.css"
 import {useData} from "../../context/dataContext/index"
 import PlaylistCard from "../../Components/Cards/playlistCard/index"
+import EmptyIndicator from "../../Components/EmptyIndicator"
+import EmptyImg from "../../media/emptyImg.png"
 const Playlist = ()=>{
     const {user : {playlists}} = useData()
+
     return(
-        <section>
+        <>
+        {playlists.length ? <section>
             <div className ="playlist__title">Playlsts</div>
             <div className ="playlist__items">
                 {
@@ -17,7 +21,8 @@ const Playlist = ()=>{
 
 
             </div>
-        </section>
+        </section>:<EmptyIndicator img ={EmptyImg} title ="Empty Playlist" to="/"/>}
+        </>
     )
 }
 

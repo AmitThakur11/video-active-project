@@ -12,7 +12,7 @@ export default function PlaylistModal({ setCreatePlaylist, setPlaylistModal, pla
       <div className="playlistModal__container">
         <div className="playlistModal">
           <div className="playlistItems">
-            {
+            {!playlists.length? <div className ="emptyList">No Playlist</div>:
               playlists.map((list) => {
                 return (
                   <label>

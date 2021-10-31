@@ -3,7 +3,11 @@ import "./Header.css";
 import Logo from "../../media/logo.png";
 import {Link} from "react-router-dom"
 
+import { useAuth } from "../../context/authContext";
+
+
 const Header = () => {
+  const {isLogin} = useAuth()
   return (
     <header>
       <Link to="/">
@@ -18,8 +22,7 @@ const Header = () => {
       </Link>
       
       <div className="header-menu">
-        <div className ="login-btn"><Link to="/login" >Log in</Link></div>
-        
+      <Link to="/login" ><div className ="login-btn">{ isLogin? "Log out" :"Log in"}</div></Link>
       </div>
     </header>
   );

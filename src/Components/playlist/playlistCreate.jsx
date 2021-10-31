@@ -10,8 +10,13 @@ export default function CreatePlaylist({setCreatePlaylist , setPlaylist , playli
             return {...playlist,title : e.target.value}
         })}/>
         <div className ="createPlaylist__btn">
-            <button className ="prm_btn" onClick = {()=>userApiAction.createPlayist(playlist , userDispatch)}>Create</button>
-            <button className ="scn_btn" onClick={()=>setCreatePlaylist(false)}>Cancel</button>
+            <button className ="prm_btn" onClick = {()=>{
+                userApiAction.createPlayist(playlist , userDispatch)
+                setCreatePlaylist(false)
+                }}>Create</button>
+            <button className ="scn_btn" onClick={()=>{
+                setCreatePlaylist(false)
+                }}>Cancel</button>
         </div>
 
     </div>

@@ -16,7 +16,10 @@
 }
 .video-footer > .title {
   font-size: 16px;
-  height: 1.8em;
+  height: 2.4em;
+  line-height: 2.4em;
+  max-height: 36px; 
+  overflow: hidden;
 }
 
 .video-detail {
