@@ -74,6 +74,16 @@
     padding:10px;
     border:0;
     border-radius : 4px;
+    margin-right: 10px;
+}
+
+.logoutSection{
+   display: flex;
+   flex-direction: row-reverse;
+   place-items: center;
+}
+.logoutSection >img{
+    width:50px;
 }
 
 @media(max-width:650px){
