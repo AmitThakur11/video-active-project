@@ -13,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const {state} = useLocation()
   const {doLogin}=userApiAction
+  const testCredential = {email : "test0@gmail.com" , password : "test12345"}
   return(
     <div className = "loginContainer">
       {!isLogin?<div className ="loginBox">
@@ -23,19 +24,22 @@ const Login = () => {
         <div style={{fontSize:"20px", fontWeight:"600"}}>Login</div>
         <input name = "email"   placeholder="-Email" onChange ={(e)=>getInput(e)} />
         <input name ="password"  type ="password" placeholder="-password" onChange ={(e)=>getInput(e)}/>
+        <div>
         <button  className="loginBox_btn" onClick = {()=>doLogin(userInput,state,navigate,setLogin,userDispatch)} >Log in</button>
+        <button  className="loginBox_btn" onClick = {()=>doLogin(testCredential,state,navigate,setLogin,userDispatch)} >Demo</button>
+        </div>
         <div className="loginBox_account">New to site?<Link to ="/signup">Create a account</Link></div>
         </div>
         </div>
 
-      </div>:<button onClick = {()=>{
+      </div>:<div><button className ='logoutBtn' onClick = {()=>{
         setLogin(false)
         navigate("/")
         localStorage.removeItem("token");
         delete axios.defaults.headers.common["Authorization"];
         toast.success("User logged out")
         userDispatch({type : "LOG OUT"})
-      }}>Logout</button>}
+      }}>Logout</button></div>}
     </div>
   )
 }
