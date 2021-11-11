@@ -11,9 +11,10 @@ const doLogin = async (userInput, state, navigate, setLogin,userDispatch,setLoad
     if (data.success) {
       setLogin(true);
       localStorage.setItem("token", data.token);
+      localStorage.setItem("login", true);
       axios.defaults.headers.common["Authorization"] = localStorage.getItem('token')
       navigate(state ? state?.from : "/");
-      loadUserData(userDispatch,setLoading)
+      loadUserData(userDispatch,setLoading,setLogin)
       toast.success("User logged in ")
     }
   } catch (error) {
@@ -49,9 +50,9 @@ const doRegister = async (userInput, navigate , setLoading) => {
   }
 };
 
-const loadUserData = async (userDispatch,setLoading) => {
+const loadUserData = async (userDispatch,setLoading,setLogin) => {
   try {
-    setLoading(true)
+    
     const { data } = await axios.get("/user");
     setLoading(false)
     if (data.success) {
@@ -59,8 +60,11 @@ const loadUserData = async (userDispatch,setLoading) => {
       
     }
   } catch(error) {
-    setLoading(false)
-    toast.error("Something went wrong")
+    localStorage.removeItem('token');
+    localStorage.removeItem('login');
+    setLogin(false)
+    delete axios.defaults.headers.common["Authorization"];
+    toast.info("session expire")
     
   }
 };

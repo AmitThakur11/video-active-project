@@ -1,14 +1,14 @@
 import "./styles.css"
 import Header from "./Components/Header/Header"
 import Content from "./Pages/Content/Content"
-import {useEffect} from "react"
+import {useEffect ,useCallback} from "react"
 import axios from "axios"
 import {useAuth} from "./context/authContext/index"
 import {useData} from "./context/dataContext/index"
 import { userApiAction } from "./apiCalls"
 
 function App() {
-  const {setLogin} = useAuth()
+  const {setLogin , isLogin} = useAuth()
   const {userDispatch, setLoading } = useData()
   useEffect(()=>{
     (()=>{
@@ -21,15 +21,20 @@ function App() {
 
   },[setLogin]);
 
-  useEffect(()=>{
-    (async()=>{
-      setLoading(true)
+  const loadData= useCallback(async()=>{
+    setLoading(true)
       const {data} = await axios.get("/video");
       setLoading(false)
       userDispatch({type : "LOAD VIDEOLIST", payload : data.payload});
-      userApiAction.loadUserData(userDispatch,setLoading)
+      isLogin && userApiAction.loadUserData(userDispatch,setLoading,setLogin)
+
+  },[setLoading ,userDispatch,isLogin,setLogin])
+
+  useEffect(()=>{
+    (async()=>{
+      loadData();
     })()
-  },[userDispatch,setLoading])
+  },[loadData])
 
 
 

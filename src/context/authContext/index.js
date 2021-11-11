@@ -16,7 +16,11 @@ export default function AuthProvider({children}){
 
     
     const [userInput , setUserInput] = useState(initialUser);
-    const [isLogin ,setLogin] = useState(false)
+    const [isLogin ,setLogin] = useState(localStorage.getItem('login'))
+
+    // if(!isLogin){
+    //     setLogin(localStorage.getItem('login'))
+    // }
     
 
     const getInput = (e)=>{

@@ -38,6 +38,7 @@ const Login = () => {
         setLogin(false)
         navigate("/")
         localStorage.removeItem("token");
+        localStorage.removeItem('login');
         delete axios.defaults.headers.common["Authorization"];
         toast.success("User logged out")
         userDispatch({type : "LOG OUT"})
