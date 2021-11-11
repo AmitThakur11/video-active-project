@@ -34,7 +34,11 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
               {checkLike ? <RiThumbUpFill className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch , setLoading})} />:<RiThumbUpLine className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch,setLoading})} />}
             </div>
             <div>
-              <RiSendPlaneLine className="icon" />
+              <RiSendPlaneLine  onClick = {()=>{
+                const value = `https://viideoactive.netlify.app/video/${videoId}`
+                navigator.clipboard.writeText(value)
+                toast.success("Link copied")
+              }} className="icon" />
             </div>
             <div>
               <RiPlayList2Line className="icon" onClick = {()=>{

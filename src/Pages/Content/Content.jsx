@@ -33,6 +33,8 @@ const Content = () => {
           <Route path = "/login" element={<Login/>}/>
           <Route path ="/signup" element ={<Signup/>}/>
         </Routes>
+
+
         <ToastContainer 
         position="top-right"
         autoClose={1500}
@@ -43,7 +45,7 @@ const Content = () => {
         rtl={false}
         pauseOnFocusLoss = {false}
         draggable
-        pauseOnHover />
+        pauseOnHover ={false} />
       </div>}
     </section>
     

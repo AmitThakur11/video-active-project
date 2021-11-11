@@ -9,9 +9,9 @@
   }
   
   .content {
-    width: 84%;
+    /* width: 84%; */
     margin-top: 1vw;
-    max-height: 97%;
+    /* max-height: 97%; */
     margin-left: 15%;
     background: rgb(255, 255, 255);
     border-radius: 5px;
