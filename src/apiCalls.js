@@ -54,6 +54,7 @@ const loadUserData = async (userDispatch,setLoading,setLogin) => {
   try {
     
     const { data } = await axios.get("/user");
+    console.log(data)
     setLoading(false)
     if (data.success) {
       userDispatch({type :"LOAD USER" , payload : data.userData})

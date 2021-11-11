@@ -6,7 +6,7 @@ export default function EmptyIndicator({img,title,to}){
     <div className ="emptyPage__container">
       <div className ="emptyPage__info">
       <div className="emptyPage__title">{title}</div>
-      <Link to ={to}><button className ="button" >Explore</button></Link>
+      {to && <Link to ={to}><button className ="button" >Explore</button></Link>}
       </div>
       <div className ="emptyPage__img">
       <img src = {img} alt ="/"/>

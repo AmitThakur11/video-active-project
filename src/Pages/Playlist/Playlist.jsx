@@ -9,7 +9,7 @@ const Playlist = ()=>{
     return(
         <>
         {playlists.length ? <section>
-            <div className ="playlist__title">Playlsts</div>
+            <div className ="playlist__title">Playlsts : {playlists.length}</div>
             <div className ="playlist__items">
                 {
                     playlists.map((playlist)=>{

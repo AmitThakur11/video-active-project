@@ -50,9 +50,11 @@ const PlayVideo = () => {
                 }
                 )
             }
-            <div className="recommendedVideo">{
+            <div className="recommendedVideo">
+            {
+
                 videoList.map((video) => {
-                    return <LikedCard video={video} show={false} />
+                    return <>{id !== video._id && <LikedCard video={video} show={false} />}</>
                 })
             }</div>
 

@@ -9,7 +9,7 @@ const LikedVideos =()=>{
     return(
         <>
         {likedVideos.length?<section>
-            <div className ="likedVideo__title">Liked Videos</div>
+            <div className ="likedVideo__title">Liked Videos : {likedVideos.length}</div>
             <div className ="likedVideo__items">
                 {
                     likedVideos.map((video)=>{

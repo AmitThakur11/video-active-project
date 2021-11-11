@@ -10,3 +10,14 @@
 }
 
 
+.clearHistoryBtn{
+    padding:7px 10px;
+    font-weight:700;
+    color:white;
+    background-color: black;
+    border:0;
+    font-size: 16px;
+    border-radius:5px;
+    margin:15px 0px;
+    
+}

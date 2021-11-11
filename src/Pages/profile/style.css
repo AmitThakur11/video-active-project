@@ -1,0 +1,22 @@
+
+
+
+
+.profileSection{
+    width :100%;
+    display: flex;
+    place-content: center;
+}
+
+.profileSection >img{
+    width: 480px;
+}
+
+
+@media(max-width:780px){
+    
+    .profileSection >img{
+        margin-top:30px;
+        width: 90%;
+    }
+}
