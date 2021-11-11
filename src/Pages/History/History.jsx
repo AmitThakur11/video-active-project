@@ -1,13 +1,14 @@
 import "./History.css"
-
+import EmptyIndicator from "../../Components/EmptyIndicator"
 import VideoCard from "../../Components/Cards/videoCard/index"
 import {useData} from "../../context/dataContext/index"
+import EmptyImg from "../../media/emptyImg.png"
 import { userApiAction } from "../../apiCalls"
 const HistoryVideos =()=>{
     const {user : {history} , userDispatch , setLoading} = useData()
     return(
         <>
-        <section>
+        {history.length ?<section>
             <div className ="likedVideo__title">History</div>
             {history.length > 0 && <button onClick={()=>userApiAction.removeHistory(userDispatch,setLoading)}>Clear History</button>}
             <div className ="likedVideo__items">
@@ -20,7 +21,7 @@ const HistoryVideos =()=>{
 
 
             </div>
-        </section>
+        </section>:<EmptyIndicator img ={EmptyImg} title ="Empty History" to="/"/>}
         </>
     )
 }

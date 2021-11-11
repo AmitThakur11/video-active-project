@@ -21,7 +21,10 @@
 }
 .emptyPage__info{
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  position: absolute;
+  z-index: 122;
+  top:60px;
 }
 .emptyPage__title{
   font-size: 80px;
@@ -30,17 +33,17 @@
 }
 .emptyPage__img{
   position: relative;
-  width:70%;
+  width:60%;
 }
 .emptyPage__img img{
- width:80%;
+ width:500px;
 
 }
 .emptyPage__container button{
-  font-size: 24px;
-  margin-top:20px;
+  font-size: 20px;
+  margin-top:16px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  padding:15px 10px;
+  padding:10px 7px;
   display: flex;
   width:fit-content;
   place-content: center;
@@ -68,9 +71,12 @@
     width:100%;
     display: flex;
   }
+  .emptyPage__info{
+    top:40%;
+  }
 
   .emptyPage__title{
-    font-size: 40px;
+    font-size: 60px;
   }
   .emptyPage__img{
     width:100%;
@@ -82,10 +88,37 @@
   .emptyPage__container button{
     display: flex;
     width:200px;
-    font-size: 18px;
-    padding:3px 7px;
+    font-size: 22px;
+    padding:7px 12px;
     width:fit-content;
     place-content: center;
   }
   
+}
+
+@media(max-width:480px){
+  .emptyPage__info{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:10px;
+  }
+
+  .emptyPage__info{
+    top:10px;
+  }
+
+  .emptyPage__title{
+    font-size: 40px;
+  }
+
+  .emptyPage__container button{
+    display: flex;
+    width:200px;
+    font-size: 18px;
+    padding:4px 10px;
+    width:fit-content;
+    place-content: center;
+  }
+
 }

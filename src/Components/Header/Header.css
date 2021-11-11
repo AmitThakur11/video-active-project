@@ -1,11 +1,12 @@
 header {
-    height: 10vh;
+    height: 60px;
     padding: 2px;
     display: flex;
     align-self: center;
-    width: 95%;
+    width: 100%;
     background: white;
     z-index: 9999;
+    padding:0px 10px;
     justify-content: space-between;
     position: fixed;
     top: 0;
@@ -65,9 +66,11 @@ header {
     background: black;
     transform : scale(0.9);
   }
-  @media (max-width: 640px) {
+  @media (max-width: 780px) {
     header{
       height: 8vh;
+      width: 100%;
+      padding:0px 10px
     }
     a > .logo {
       margin-left: 0;
