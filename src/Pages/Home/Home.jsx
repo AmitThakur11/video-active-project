@@ -9,10 +9,6 @@ const Home =()=>{
   const {user : {videoList}} = useData()
     return(
       <>
-      {/* <div className="search-bar">
-        <input placeholder="search videos" />
-        <RiSearchLine className="icon" />
-      </div> */}
       <section className ="home-container">
         
       <section className ="home">{

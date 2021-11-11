@@ -27,7 +27,7 @@ function App() {
       const {data} = await axios.get("/video");
       setLoading(false)
       userDispatch({type : "LOAD VIDEOLIST", payload : data.payload});
-      userApiAction.loadUserData(userDispatch)
+      userApiAction.loadUserData(userDispatch,setLoading)
     })()
   },[userDispatch,setLoading])
 

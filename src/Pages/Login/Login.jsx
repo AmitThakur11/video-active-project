@@ -9,7 +9,7 @@ import {userApiAction} from "../../apiCalls"
 import { useData } from "../../context/dataContext";
 const Login = () => {
   const{getInput,setLogin , userInput,isLogin} = useAuth();
-  const {userDispatch} = useData()
+  const {userDispatch , setLoading} = useData()
   const navigate = useNavigate();
   const {state} = useLocation()
   const {doLogin}=userApiAction
@@ -25,8 +25,8 @@ const Login = () => {
         <input name = "email"   placeholder="-Email" onChange ={(e)=>getInput(e)} />
         <input name ="password"  type ="password" placeholder="-password" onChange ={(e)=>getInput(e)}/>
         <div>
-        <button  className="loginBox_btn" onClick = {()=>doLogin(userInput,state,navigate,setLogin,userDispatch)} >Log in</button>
-        <button  className="loginBox_btn" onClick = {()=>doLogin(testCredential,state,navigate,setLogin,userDispatch)} >Demo</button>
+        <button  className="loginBox_btn" onClick = {()=>doLogin(userInput,state,navigate,setLogin,userDispatch , setLoading)} >Log in</button>
+        <button  className="loginBox_btn" onClick = {()=>doLogin(testCredential,state,navigate,setLogin,userDispatch , setLoading)} >Demo</button>
         </div>
         <div className="loginBox_account">New to site?<Link to ="/signup">Create a account</Link></div>
         </div>

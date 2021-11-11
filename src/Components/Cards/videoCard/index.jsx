@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 import { useData } from "../../../context/dataContext"
 export default function VideoCard({video , show , videoAction , playlist}){
     const navigate = useNavigate()
-    const {userDispatch} = useData()
+    const {userDispatch, setLoading} = useData()
   return(
     <>
     <section className ="videoCard">
@@ -19,7 +19,7 @@ export default function VideoCard({video , show , videoAction , playlist}){
         </div>
       </div>
      
-      {show && <button className ="remove" onClick = {()=>videoAction({videoId : video._id, playlist : playlist ,  userDispatch : userDispatch})}><RiDeleteBin6Line/></button>}
+      {show && <button className ="remove" onClick = {()=>videoAction({videoId : video._id, playlist : playlist ,  userDispatch : userDispatch , setLoading})}><RiDeleteBin6Line/></button>}
     </section>
     </>
   )

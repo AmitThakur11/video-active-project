@@ -4,12 +4,12 @@ import VideoCard from "../../Components/Cards/videoCard/index"
 import {useData} from "../../context/dataContext/index"
 import { userApiAction } from "../../apiCalls"
 const HistoryVideos =()=>{
-    const {user : {history} , userDispatch} = useData()
+    const {user : {history} , userDispatch , setLoading} = useData()
     return(
         <>
         <section>
             <div className ="likedVideo__title">History</div>
-            {history.length > 0 && <button onClick={()=>userApiAction.removeHistory(userDispatch)}>Clear History</button>}
+            {history.length > 0 && <button onClick={()=>userApiAction.removeHistory(userDispatch,setLoading)}>Clear History</button>}
             <div className ="likedVideo__items">
                 {
                     history.map((video)=>{

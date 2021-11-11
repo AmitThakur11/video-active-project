@@ -13,7 +13,7 @@ import { useAuth } from "../../context/authContext";
 
 const PlayVideo = () => {
     const { id } = useParams()
-    const { user: { videoList } , userDispatch } = useData()
+    const { user: { videoList } , userDispatch} = useData()
     console.log("user : ")
     const {isLogin} = useAuth()
     console.log(videoList)

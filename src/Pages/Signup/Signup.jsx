@@ -3,9 +3,11 @@ import SignupImg from "../../media/signUpImg.svg"
 import {useAuth} from "../../context/authContext/index"
 import { userApiAction } from "../../apiCalls";
 import { useNavigate } from "react-router-dom";
+import { useData } from "../../context/dataContext";
 const Signup = () => {
   const {getInput , userInput} = useAuth()
   const navigate =useNavigate()
+  const {setLoading} = useData()
 
   return (
     <div className = "loginContainer">
@@ -19,7 +21,7 @@ const Signup = () => {
         <input name = "email" placeholder="-Email"  onChange = {(e)=>getInput(e)} />
         <input name = "password" type ="password"  placeholder="-Password"  onChange = {(e)=>getInput(e)}/>
         <input name = "cpassword" type ="password" placeholder="-Confirm password"  onChange = {(e)=>getInput(e)} />
-        <button   className="loginBox_btn" onClick={()=>userApiAction.doRegister(userInput,navigate)}>Register</button>
+        <button   className="loginBox_btn" onClick={()=>userApiAction.doRegister(userInput,navigate ,setLoading)}>Register</button>
         
         </div>
         </div>

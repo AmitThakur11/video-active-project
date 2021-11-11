@@ -5,7 +5,7 @@ import { userApiAction } from "../../../apiCalls";
 import { useData } from "../../../context/dataContext";
 
 export default function PlaylistCard({playlist}) {
-  const {userDispatch} = useData()
+  const {userDispatch , setLoading} = useData()
   return (
     <div className="playlistBox">
        <Link to = {`/playlist/${playlist._id}`}>
@@ -15,7 +15,7 @@ export default function PlaylistCard({playlist}) {
       </div>
       </>
       </Link> 
-      <button className ="remove" onClick ={()=>userApiAction.removePlaylist(playlist._id,userDispatch)} ><RiDeleteBin6Line/></button>
+      <button className ="remove" onClick ={()=>userApiAction.removePlaylist(playlist._id,userDispatch,setLoading)} ><RiDeleteBin6Line/></button>
     </div>
   );
 }

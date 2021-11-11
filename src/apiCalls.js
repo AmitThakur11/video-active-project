@@ -2,24 +2,28 @@ import axios from "axios";
 import { toast } from "react-toastify";
 // import Loader from "./Components/Loader";
 
-const doLogin = async (userInput, state, navigate, setLogin,userDispatch) => {
+const doLogin = async (userInput, state, navigate, setLogin,userDispatch,setLoading) => {
   try {
     const { email, password } = userInput;
+    setLoading(true)
     const { data } = await axios.post("auth/login", { email, password });
+    setLoading(false)
     if (data.success) {
       setLogin(true);
       localStorage.setItem("token", data.token);
       axios.defaults.headers.common["Authorization"] = localStorage.getItem('token')
       navigate(state ? state?.from : "/");
-      loadUserData(userDispatch)
+      loadUserData(userDispatch,setLoading)
       toast.success("User logged in ")
     }
   } catch (error) {
-    console.log(error.response.data.msg);
+    setLoading(false)
+    
+    toast.error("login failed")
   }
 };
 
-const doRegister = async (userInput, navigate) => {
+const doRegister = async (userInput, navigate , setLoading) => {
   const { username, email, password, cpassword } = userInput;
   if (cpassword !== password) {
     return toast("Password doesn't match",username,email);
@@ -28,10 +32,11 @@ const doRegister = async (userInput, navigate) => {
 
 
   try {
+    setLoading(true)
     const {data}= await axios.post("/auth/register",{ username ,
     email,
     password})
-    console.log(data.msg)
+    setLoading(false)
     if(data.success){
       console.log(data)
       toast.success("Account created")
@@ -39,27 +44,31 @@ const doRegister = async (userInput, navigate) => {
     }
       
   } catch (error) {
-    toast.error(error)
+    setLoading(false)
+    toast.error("registeration failed")
   }
 };
 
-const loadUserData = async (userDispatch) => {
+const loadUserData = async (userDispatch,setLoading) => {
   try {
+    setLoading(true)
     const { data } = await axios.get("/user");
-    console.log(data.userData)
+    setLoading(false)
     if (data.success) {
       userDispatch({type :"LOAD USER" , payload : data.userData})
       
     }
-  } catch (error) {
+  } catch(error) {
+    setLoading(false)
+    toast.error("Something went wrong")
     
   }
 };
-const addVideoInLike = async ({videoId, userDispatch}) => {
+const addVideoInLike = async ({videoId, userDispatch,setLoading}) => {
 
   
   try {
-    console.log(videoId)
+    
     const {data :{msg,success,userData : {likedVideos}}} = await axios.post(`/user/like/${videoId}`);
     
     if(success){
@@ -67,41 +76,46 @@ const addVideoInLike = async ({videoId, userDispatch}) => {
       return toast.success(msg)
     }
   } catch (error) {
-    toast.error(error.response.data.msg)
+    toast.error("Something went wrong")
   }
 };
 
 const addVideoToHistory = async (videoId , userDispatch) => {
   try {
+    
     const {data} = await axios.post(`/user/history/${videoId}`);
-    console.log("data")
-    console.log(data);
+    
     if(data.success){
       userDispatch({type :"UPDATE HISTORY" , payload : data.userData.history})
     }
     
   } catch (error) {
-    console.log(error.response)
+    toast.error("Something went wrong")
   }
   
 };
 
-const removeVideoFromHistory = async ({videoId,userDispatch}) => {
+const removeVideoFromHistory = async ({videoId,userDispatch,setLoading}) => {
   try {
+    setLoading(true)
     const {data} = await axios.delete(`/user/history/${videoId}`);
+    setLoading(false)
     if(data.success){
 
       userDispatch({type : "UPDATE HISTORY" , payload : data.userData.history})
       toast.success("Video removed")
     }
-    console.log(data)
-  } catch (error) {}
+  } catch (error) {
+    setLoading(false)
+    toast.error("Something went wrong")
+  }
 };
 
 
 
-const createPlayist = async (playlist , userDispatch) => {
+const createPlayist = async (playlist , userDispatch ,setLoading) => {
   try {
+    
     const {data} = await axios.post(`/user/${playlist.video}/playlist`, {newTitle : playlist.title});
     
     if(data.success){
@@ -109,39 +123,46 @@ const createPlayist = async (playlist , userDispatch) => {
       toast.success("Playlist created")
     }
   } catch (error) {
-    toast.error(error.response.data.msg)
+    
+    toast.error("Something went wrong")
   }
 };
 
-const removeHistory = async (userDispatch) => {
+const removeHistory = async (userDispatch,setLoading) => {
   try {
+    setLoading(true)
     const {data} = await axios.delete("/user/history/remove");
+
+    setLoading(false)
     if(data.success){
       userDispatch({type : "UPDATE HISTORY" , payload : data.userData.history})
       toast.success("History cleared")
     }
   } catch (error) {
-    toast.error(error.response.data.msg)
+    setLoading(false)
+    toast.error("Something went wrong")
   }
 };
 
-const removePlaylist = async (playlistId, userDispatch) => {
+const removePlaylist = async (playlistId, userDispatch,setLoading) => {
   try {
+   
     const {data} = await axios.delete(`/user/playlist/${playlistId}`);
+   
     if(data.success){
       userDispatch({type:"UPDATE PLAYLIST" , payload :data.userData.playlists})
       toast.success("Playlist removed")
     }
   } catch (error) {
-    toast.error(error.response)
+    toast.error("Something went wrong")
   }
 };
 
-const removeFromPlaylist = async({videoId,playlist,userDispatch})=>{
+const removeFromPlaylist = async({videoId,playlist,userDispatch , setLoading})=>{
   try{
-    console.log(playlist)
-    console.log(videoId)
+    
     const {data} = await axios.delete(`/user/playlist/${playlist}/video/${videoId}`)
+    
     if(data.success){
       userDispatch({type : "UPDATE PLAYLIST" , payload : data.userData.playlists})
       toast.success("playlist Update")
@@ -149,7 +170,9 @@ const removeFromPlaylist = async({videoId,playlist,userDispatch})=>{
     }
 
   }catch(error){
-    toast.error(error.response.data.msg)
+    
+    toast.error("Something went wrong")
+
 
   }
 }

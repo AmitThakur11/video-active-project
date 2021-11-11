@@ -13,7 +13,7 @@ import { useAuth } from "../../context/authContext";
 
 
 const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
-  const {user : {videoList, likedVideos}  , userDispatch} = useData();
+  const {user : {videoList, likedVideos}  , userDispatch , setLoading} = useData();
   const {isLogin} = useAuth()
   const {addVideoInLike} = userApiAction
   const checkLike = likedVideos.find(({_id})=>_id === videoId);
@@ -31,7 +31,7 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
           </section>
           <section className="video-action">
             <div>
-              {checkLike ? <RiThumbUpFill className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch})} />:<RiThumbUpLine className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch})} />}
+              {checkLike ? <RiThumbUpFill className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch , setLoading})} />:<RiThumbUpLine className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch,setLoading})} />}
             </div>
             <div>
               <RiSendPlaneLine className="icon" />
