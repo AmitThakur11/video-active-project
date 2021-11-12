@@ -15,12 +15,13 @@ import Loader from "../../Components/Loader/index"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { useData } from "../../context/dataContext";
+import Modal from "../../Components/Modal/Modal";
 const Content = () => {
-  const {loading} = useData()
-  
+  const {loading , modal} = useData()
   return (
     <section className="content-container">
       <SideBar />
+      {modal && <Modal title ="You need to sign in first." btn = {{title : "login" , to :"/login" }}/>}
       {loading ? <Loader/>:<div className="content">
         <Routes>
           <Route path = "/" element ={<Home/>}></Route>
@@ -46,6 +47,8 @@ const Content = () => {
         pauseOnFocusLoss = {false}
         draggable
         pauseOnHover ={false} />
+       
+
       </div>}
     </section>
     

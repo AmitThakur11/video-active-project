@@ -13,11 +13,10 @@ import { useAuth } from "../../context/authContext";
 
 
 const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
-  const {user : {videoList, likedVideos}  , userDispatch , setLoading} = useData();
+  const {user : {videoList, likedVideos}  , userDispatch , setLoading , setModal} = useData();
   const {isLogin} = useAuth()
   const {addVideoInLike} = userApiAction
   const checkLike = likedVideos.find(({_id})=>_id === videoId);
-  
 
   const video =  videoList.find((video)=>video._id === videoId);
     return(
@@ -31,7 +30,13 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
           </section>
           <section className="video-action">
             <div>
-              {checkLike ? <RiThumbUpFill className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch , setLoading})} />:<RiThumbUpLine className="icon" onClick = {()=>addVideoInLike({videoId : video._id , userDispatch : userDispatch,setLoading})} />}
+              {checkLike ? <RiThumbUpFill className="icon" onClick = {()=>{
+                addVideoInLike({videoId : video._id , userDispatch : userDispatch , setLoading})
+              }
+                } />:<RiThumbUpLine className="icon" onClick = {()=>{
+                  isLogin ? addVideoInLike({videoId : video._id , userDispatch : userDispatch,setLoading}): setModal(true)
+                }
+                  } />}
             </div>
             <div>
               <RiSendPlaneLine  onClick = {()=>{
@@ -42,7 +47,11 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
             </div>
             <div>
               <RiPlayList2Line className="icon" onClick = {()=>{
-                isLogin ?setPlaylistModal((modal => !modal)) : toast.error("First Login")
+                if(isLogin){
+                  setPlaylistModal((modal => !modal)) }
+                else{
+                  return setModal(true)
+                }
                 setPlaylist((playlist)=>{
                   return {...playlist , video : video._id}
                 })

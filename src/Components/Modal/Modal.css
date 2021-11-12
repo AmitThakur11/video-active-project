@@ -1,0 +1,64 @@
+.modalSection{
+    z-index: 222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(244, 121, 77,0.3);
+    position: fixed;
+    width:100%;
+    height: 100%;
+}
+
+.modal{
+    background-color: rgb(255, 255, 255);
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:240px;
+    height: 100px;
+    transform: translateY(-45%);
+    box-shadow: rgba(242, 89, 23, 0.4) 0px 30px 90px;
+    border-radius : 5px;
+}
+
+.modalTitle{
+    font-size: 16px;
+    margin-top:10px;
+    font-weight: 700;
+}
+
+.modalBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modalBtn > button{
+    padding:4px;
+    margin-left :8px;
+    font-weight: 700;
+    background: white;
+    transition :ease-in-out 350ms;
+
+}
+
+.modalBtn > button:hover{
+    background: black;
+    border :1px solid black;
+    color:white;
+    transform: scale(1.2);
+}
+
+.modalBtn > .prmBtn{
+    background: #f45d2f;
+    border :  1px solid #f45d2f;
+    color :white;
+}
+.modalBtn > .scndBtn{
+    border : 1px solid #f45d2f;
+    color:#f45d2f;
+
+}
+@media(max-width : 780px){
+
+}

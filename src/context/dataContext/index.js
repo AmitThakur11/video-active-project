@@ -6,6 +6,7 @@ export const dataContext = createContext();
 export default function DataProvider({children}){
     // const [videoList , setVideoList] =useState([])
     const [loading, setLoading] = useState(false);
+    const [modal , setModal] = useState(true)
     const initialUserState = {
         videoList : [],
         username : "",
@@ -48,22 +49,9 @@ export default function DataProvider({children}){
     }
 
     const [user , userDispatch] = useReducer(userReducer , initialUserState)
-    // useEffect(() => {
-    //     (async()=>{
-    //         try{
-    //             const {data} = await axios.get("/video");
-    //             setVideoList(data.payload)
-
-    //         }catch(error){
-
-    //         }
-
-    //     })()
-        
-    // },[])
 
 
-    return <dataContext.Provider value ={{loading , setLoading , user , userDispatch}}>
+    return <dataContext.Provider value ={{loading , setLoading , user , userDispatch , modal ,setModal}}>
         {children}
         </dataContext.Provider>
 
