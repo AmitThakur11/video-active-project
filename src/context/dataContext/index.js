@@ -6,7 +6,7 @@ export const dataContext = createContext();
 export default function DataProvider({children}){
     // const [videoList , setVideoList] =useState([])
     const [loading, setLoading] = useState(false);
-    const [modal , setModal] = useState(true)
+    const [modal , setModal] = useState(false)
     const initialUserState = {
         videoList : [],
         username : "",
