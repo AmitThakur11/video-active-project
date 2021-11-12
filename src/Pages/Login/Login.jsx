@@ -4,7 +4,7 @@ import "./style.css";
 import {toast} from "react-toastify"
 import LoginImg from  "../../media/loginImg.svg"
 import {useAuth} from "../../context/authContext/index"
-import { useLocation , useNavigate } from "react-router-dom";
+import { useLocation , useNavigate  } from "react-router-dom";
 import {userApiAction} from "../../apiCalls"
 import { useData } from "../../context/dataContext";
 const Login = () => {
