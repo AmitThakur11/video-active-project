@@ -89,15 +89,28 @@
 .loginBox__account>a {
     color: red;
 }
-
-.logoutBox {
-    width: 400px;
+.logoutSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-.logoutBox img {
-    width: 50%;
+.logoutSection > img {
+    width: 50px;
 
 }
+.logoutBtn{
+    font-size: 24px;
+    border:0;
+    padding:10px;
+    margin-right:10px;
+    font-weight: 500;
+
+
+}
+
+
 @media(max-width : 780px) {
     .loginBox {
         width: 360px;
@@ -114,12 +127,12 @@
     .loginBox__inner{
         z-index: 1;
     }
+    
 }
 
 @media(max-width : 480px) {
     .loginBox {
         width: 90%;
     }
-
     
 }

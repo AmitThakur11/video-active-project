@@ -33,7 +33,6 @@ const Login = () => {
         </div>
 
       </div> : <div className='logoutSection'>
-        <img src="https://i.ibb.co/12mbhbS/logout.png" alt="logout" border="0" />
         <button className='logoutBtn' onClick={() => {
           setLogin(false)
           navigate("/")
@@ -43,6 +42,8 @@ const Login = () => {
           toast.success("User logged out")
           userDispatch({ type: "LOG OUT" })
         }}>Logout</button>
+        <img src="https://i.ibb.co/12mbhbS/logout.png" alt="logout" border="0" />
+
 
       </div>}
     </div>
