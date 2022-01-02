@@ -30,5 +30,6 @@
 @media(max-width:720px){
     .historyVideo__items{
         grid-template-columns: 1fr ;
+        padding:2px
     }
 }

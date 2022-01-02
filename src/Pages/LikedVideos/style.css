@@ -10,13 +10,14 @@
     display:grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+    padding:2px;
 
     
 }
 
 
 @media(max-width:720px){
-    .likeVideo__items{
+    .likedVideo__items{
         grid-template-columns: 1fr ;
     }
 }
