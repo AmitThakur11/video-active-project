@@ -4,10 +4,11 @@ import App from './App';
 import {BrowserRouter as Router} from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
 import {AuthProvider,DataProvider , UserProvider} from "./context"
-
+import ScrollToTop from "./utils/scrollToTop"
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <ScrollToTop/>
       <DataProvider>
         <AuthProvider>
          <UserProvider>
