@@ -1,7 +1,7 @@
 import { GrAddCircle , GrCheckboxSelected } from "react-icons/gr";
 import "./style.css"
 
-import { useData } from "../../context/dataContext/index"
+import { useData } from "../../Context/dataContext/index"
 import { userApiAction } from "../../apiCalls";
 export default function PlaylistModal({ setCreatePlaylist, setPlaylistModal, playlist }) {
   const { user : {playlists} , userDispatch , setLoading} = useData();

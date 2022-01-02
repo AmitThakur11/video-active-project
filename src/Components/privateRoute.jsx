@@ -1,5 +1,5 @@
 import {Route,Navigate} from "react-router-dom"
-import {useAuth} from "../context/authContext/index"
+import {useAuth} from "../Context/authContext/index"
 
 
 const PrivateRoute =({path ,...props})=>{

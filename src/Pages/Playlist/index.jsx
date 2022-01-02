@@ -1,8 +1,8 @@
-import "./Playlist.css"
-import {useData} from "../../context/dataContext/index"
+import "./style.css"
+import {useData} from "../../Context/dataContext/index"
 import PlaylistCard from "../../Components/Cards/playlistCard/index"
 import EmptyIndicator from "../../Components/EmptyIndicator"
-import EmptyImg from "../../media/emptyImg.png"
+import EmptyImg from "../../Media/emptyImg.png"
 const Playlist = ()=>{
     const {user : {playlists}} = useData()
 

@@ -1,8 +1,8 @@
-import "./History.css"
+import "./style.css"
 import EmptyIndicator from "../../Components/EmptyIndicator"
 import VideoCard from "../../Components/Cards/videoCard/index"
-import {useData} from "../../context/dataContext/index"
-import EmptyImg from "../../media/emptyImg.png"
+import {useData} from "../../Context/dataContext/index"
+import EmptyImg from "../../Media/emptyImg.png"
 import { userApiAction } from "../../apiCalls"
 const HistoryVideos =()=>{
     const {user : {history} , userDispatch , setLoading} = useData()

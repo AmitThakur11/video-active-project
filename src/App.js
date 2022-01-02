@@ -1,24 +1,17 @@
 import "./styles.css"
 import Header from "./Components/Header/Header"
-import Content from "./Pages/Content/Content"
+import {Content} from "./Pages"
 import {useEffect ,useCallback} from "react"
 import axios from "axios"
-import {useAuth} from "./context/authContext/index"
-import {useData} from "./context/dataContext/index"
+import {useAuth} from "./Context/authContext/index"
+import {useData} from "./Context/dataContext/index"
 import { userApiAction } from "./apiCalls"
-
+import {axiosInitializer} from "./utils/axiosInitiializer"
 function App() {
   const {setLogin , isLogin} = useAuth()
   const {userDispatch, setLoading } = useData()
   useEffect(()=>{
-    (()=>{
-      axios.defaults.baseURL = "https://video-lib-api.herokuapp.com/"
-      if(localStorage.getItem('token')){
-        axios.defaults.headers.common["Authorization"] = localStorage.getItem('token')
-        setLogin(true)
-      }
-    })()
-
+    axiosInitializer()
   },[setLogin]);
 
   const loadData= useCallback(async()=>{

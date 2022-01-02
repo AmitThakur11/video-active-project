@@ -1,9 +1,9 @@
-import "./LikedVideos.css"
+import "./style.css"
 import VideoCard from "../../Components/Cards/videoCard/index"
 import { userApiAction } from "../../apiCalls"
-import {useData} from "../../context/dataContext/index"
+import {useData} from "../../Context/dataContext/index"
 import EmptyIndicator from "../../Components/EmptyIndicator"
-import EmptyImg from "../../media/emptyImg.png"
+import EmptyImg from "../../Media/emptyImg.png"
 const LikedVideos =()=>{
     const {user : {likedVideos}} = useData()
     return(

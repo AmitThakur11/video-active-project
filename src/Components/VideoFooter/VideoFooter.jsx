@@ -7,9 +7,9 @@ import {
     RiThumbUpFill
   } from "react-icons/ri";
 
-  import { useData } from "../../context/dataContext/index"
+  import { useData } from "../../Context/dataContext/index"
 import { toast } from "react-toastify";
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../Context/authContext";
 
 
 const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{

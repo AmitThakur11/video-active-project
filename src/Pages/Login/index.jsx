@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import axios from "axios"
 import "./style.css";
 import { toast } from "react-toastify"
-import LoginImg from "../../media/loginImg.svg"
-import { useAuth } from "../../context/authContext/index"
+import LoginImg from "../../Media/loginImg.svg"
+import { useAuth } from "../../Context/authContext/index"
 import { useLocation, useNavigate } from "react-router-dom";
 import { userApiAction } from "../../apiCalls"
-import { useData } from "../../context/dataContext";
+import { useData } from "../../Context/dataContext";
 const Login = () => {
   const { getInput, setLogin, userInput, isLogin } = useAuth();
   const { userDispatch, setLoading } = useData()

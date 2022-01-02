@@ -1,6 +1,6 @@
 import "./style.css"
 import {userApiAction} from "../../apiCalls"
-import {useData} from "../../context/dataContext/index"
+import {useData} from "../../Context/dataContext/index"
 export default function CreatePlaylist({setCreatePlaylist , setPlaylist , playlist}){
     const {userDispatch , setLoading} =useData()
     return <>

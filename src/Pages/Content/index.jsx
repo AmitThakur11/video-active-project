@@ -1,20 +1,21 @@
-import "./Content.css";
+import "./style.css";
 import {Routes , Route} from "react-router-dom"
 import SideBar from "../../Components/SideBar/SideBar";
-import Home from "../Home/Home";
-import LikedVideos from "../LikedVideos/LikedVideos";
-import History from "../History/History";
-import Playlist from "../Playlist/Playlist";
-import Login from "../Login/Login";
-import Signup from "../Signup/Signup";
-import PlayVideo from "../PlayVideo/PlayVideo";
+// import Home from "../Home";
+// import LikedVideos from "../LikedVideos";
+// import History from "../History";
+// import Playlist from "../Playlist";
+// import Login from "../Login";
+// import Signup from "../Signup";
+// import PlayVideo from "../PlayVideo";
+
+import { Home,LikedVideos , History , Playlist ,Login , Signup ,PlayVideo ,Profile } from "../../Pages";
 import PrivateRoute from "../../Components/privateRoute";
-import Profile from "../profile/profile";
-import PlaylistDetails from "../../Pages/Playlist/PlaylistDetails"
+import PlaylistDetails from "../Playlist/PlaylistDetails"
 import Loader from "../../Components/Loader/index"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import { useData } from "../../context/dataContext";
+import { useData } from "../../Context/dataContext";
 import Modal from "../../Components/Modal/Modal";
 const Content = () => {
   const {loading , modal} = useData()

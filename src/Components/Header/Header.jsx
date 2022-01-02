@@ -1,9 +1,9 @@
 import "./Header.css";
 
-import Logo from "../../media/logo.png";
+import Logo from "../../Media/logo.png";
 import {Link} from "react-router-dom"
 
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../Context/authContext";
 
 
 const Header = () => {

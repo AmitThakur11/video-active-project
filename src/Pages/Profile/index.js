@@ -1,6 +1,6 @@
 import React from 'react'
 import "./style.css"
-import UnderConstruction from "../../media/construction.png"
+import UnderConstruction from "../../Media/construction.png"
 
 export default function profile() {
     return (

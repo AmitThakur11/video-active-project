@@ -1,5 +1,5 @@
 import "./style.css"
-import LoaderImg from "../../media/logo.png"
+import LoaderImg from "../../Media/logo.png"
 export default function Loader(){
     return(
         <div className ="loaderContainer">

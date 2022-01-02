@@ -1,7 +1,7 @@
 import "./style.css"
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
-import { useData } from "../../../context/dataContext"
+import { useData } from "../../../Context/dataContext"
 export default function VideoCard({ video, show, videoAction, playlist }) {
   const navigate = useNavigate()
   const { userDispatch, setLoading } = useData()

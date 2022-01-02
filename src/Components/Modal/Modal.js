@@ -1,5 +1,5 @@
 import React from 'react'
-import { useData } from '../../context/dataContext';
+import { useData } from '../../Context/dataContext';
 import {useNavigate} from "react-router-dom";
 import "./Modal.css"
 function Modal({title , btn ,...props}) {

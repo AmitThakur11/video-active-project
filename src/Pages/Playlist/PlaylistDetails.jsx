@@ -1,6 +1,6 @@
-import "./Playlist.css"
+import "./style.css"
 import VideoCard from "../../Components/Cards/videoCard/index"
-import {useData} from "../../context/dataContext/index"
+import {useData} from "../../Context/dataContext/index"
 import { useParams } from "react-router-dom"
 import { userApiAction } from "../../apiCalls"
 const LikedVideos =()=>{

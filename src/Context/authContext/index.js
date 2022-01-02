@@ -18,10 +18,6 @@ export default function AuthProvider({children}){
     const [userInput , setUserInput] = useState(initialUser);
     const [isLogin ,setLogin] = useState(localStorage.getItem('login'))
 
-    // if(!isLogin){
-    //     setLogin(localStorage.getItem('login'))
-    // }
-    
 
     const getInput = (e)=>{
         const {name , value} = e.target
@@ -29,12 +25,6 @@ export default function AuthProvider({children}){
             return {...input , [name] : value}
         })
     }
-
-    // useEffect(()=>{
-    //     if(localStorage.getItem("token"))
-    //     return userApiAction.loadUserData(setLogin)
-
-    // },[isLogin])
 
    
 

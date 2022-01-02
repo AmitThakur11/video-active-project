@@ -2,7 +2,7 @@ import "./style.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { userApiAction } from "../../../apiCalls";
-import { useData } from "../../../context/dataContext";
+import { useData } from "../../../Context/dataContext";
 
 export default function PlaylistCard({ playlist }) {
   const { userDispatch, setLoading } = useData();

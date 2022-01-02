@@ -1,14 +1,14 @@
-import "./PlayVideo.css"
+import "./style.css"
 import { useState  , useEffect} from "react";
 import VideoFooter from "../../Components/VideoFooter/VideoFooter"
-import PlaylistModal from "../../Components/playlist/playlistModal"
-import Createplaylist from "../../Components/playlist/playlistCreate"
+import PlaylistModal from "../../Components/Playlist/playlistModal"
+import Createplaylist from "../../Components/Playlist/playlistCreate"
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
-import { useData } from "../../context/dataContext/index"
+import { useData } from "../../Context/dataContext/index"
 import LikedCard from "../../Components/Cards/videoCard/index"
 import { userApiAction } from "../../apiCalls";
-import { useAuth } from "../../context/authContext";
+import { useAuth } from "../../Context/authContext";
 
 
 const PlayVideo = () => {

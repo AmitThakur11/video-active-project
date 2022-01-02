@@ -1,10 +1,10 @@
 import HomeCard from "../../Components/Cards/HomeCard/HomeCard"
-import "./Home.css";
+import "./style.css";
 // import {
 //   RiSearchLine
 // } from "react-icons/ri";
 import {Link} from "react-router-dom"
-import {useData} from "../../context/dataContext/index"
+import {useData} from "../../Context/dataContext/index"
 const Home =()=>{
   const {user : {videoList}} = useData()
     return(

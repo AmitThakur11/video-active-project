@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter as Router} from "react-router-dom"
 import reportWebVitals from './reportWebVitals';
-import {AuthProvider,DataProvider , UserProvider} from "./context"
+import {AuthProvider,DataProvider} from "./Context"
 import ScrollToTop from "./utils/scrollToTop"
 ReactDOM.render(
   <React.StrictMode>
@@ -11,9 +11,9 @@ ReactDOM.render(
       <ScrollToTop/>
       <DataProvider>
         <AuthProvider>
-         <UserProvider>
+         
           <App />
-        </UserProvider>
+       
         </AuthProvider>
       </DataProvider>
     </Router>
