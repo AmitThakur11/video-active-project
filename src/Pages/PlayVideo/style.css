@@ -43,6 +43,13 @@
         position : sticky;
         top:8vh;
     }
+    .recommendedVideo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+ 
 }
 
 @media(max-width:480px){
@@ -50,11 +57,6 @@
         width:100%;
         height:240px;
 
-    }
-    .recommendedVideo{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
  
 }
