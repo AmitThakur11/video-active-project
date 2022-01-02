@@ -58,5 +58,8 @@
         height:240px;
 
     }
+    .play-video-container{
+        padding-top: 0px;
+    }
  
 }
