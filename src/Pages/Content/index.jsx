@@ -11,7 +11,7 @@ import SideBar from "../../Components/SideBar/SideBar";
 
 import { Home,LikedVideos , History , Playlist ,Login , Signup ,PlayVideo ,Profile } from "../../Pages";
 import PrivateRoute from "../../Components/privateRoute";
-import PlaylistDetails from "../Playlist/PlaylistDetails"
+import PlaylistData from "../Playlist/PlaylistData"
 import Loader from "../../Components/Loader/index"
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,7 +30,7 @@ const Content = () => {
           <PrivateRoute path ="/likedvideos" element={<LikedVideos/>}/>
           <PrivateRoute path ="/history" element = {<History/>}/>
           <PrivateRoute path = "/playlist" element = {<Playlist/>}/>
-          <PrivateRoute path = "/playlist/:id" element = {<PlaylistDetails/>}/>
+          <PrivateRoute path = "/playlist/:id" element = {<PlaylistData/>}/>
           <PrivateRoute path = "/profile" element = {<Profile/>}/>
           <Route path = "/login" element={<Login/>}/>
           <Route path ="/signup" element ={<Signup/>}/>

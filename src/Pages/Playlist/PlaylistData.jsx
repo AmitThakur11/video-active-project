@@ -3,7 +3,7 @@ import VideoCard from "../../Components/Cards/videoCard/index"
 import {useData} from "../../Context/dataContext/index"
 import { useParams } from "react-router-dom"
 import { userApiAction } from "../../apiCalls"
-const LikedVideos =()=>{
+const PlaylistData =()=>{
     const {id} = useParams()
     const {user : {playlists}} = useData()
     const currentList = playlists.find(({_id})=>_id === id);
@@ -25,4 +25,4 @@ const LikedVideos =()=>{
         </>
     )
 }
-export default LikedVideos
+export default PlaylistData
