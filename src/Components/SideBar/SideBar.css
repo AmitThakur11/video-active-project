@@ -1,6 +1,5 @@
 .side-bar {
     position: fixed;
-  
     left: 0;
     background-color: white;
     height: 100%;
@@ -46,7 +45,7 @@
   @media (max-width: 720px) {
     .side-bar {
       width: 10vw;
-      margin-top:6vh;
+      padding:20px;
       display: flex;
       place-items: center;
       flex-direction: column;

@@ -2,6 +2,7 @@
 .play-video-container{
     display: grid;
     grid-template-columns:70% 30% ;
+    padding-top: 40px;
 }
 .video{
     background: black;
@@ -12,11 +13,29 @@
 }
 .recommendedVideo{
     padding: 0px 10px;
+    height: calc( 100vh - 60px );
+    overflow: scroll;
+    margin-right: 5px;
 }
 
+.recommendedVideo::-webkit-scrollbar {
+    width: 6px;
+  
+    
+  }
+
+.recommendedVideo::-webkit-scrollbar-thumb{
+    background: orangered;
+    border-radius: 10px;
+    outline: 1px solid slategrey;
+    
+  }
+
+ 
 @media(max-width:920px){
     .play-video-container{
         grid-template-columns: 100%;
+        padding-top:20px;
     }
     .video{
         width:100%;
@@ -35,7 +54,7 @@
     .recommendedVideo{
         display: flex;
         flex-direction: column;
-        justify-content: center
+        justify-content: center;
     }
  
 }

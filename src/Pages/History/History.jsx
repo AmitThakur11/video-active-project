@@ -9,9 +9,9 @@ const HistoryVideos =()=>{
     return(
         <>
         {history.length ?<section>
-            <div className ="likedVideo__title">History : {history.length}</div>
+            <div className ="historyVideo__title">History : {history.length}</div>
             {history.length > 0 && <button className="clearHistoryBtn" onClick={()=>userApiAction.removeHistory(userDispatch,setLoading)}>Clear History</button>}
-            <div className ="likedVideo__items">
+            <div className ="historyVideo__items">
                 {
                     history.map((video)=>{
                         return <VideoCard video = {video} show = {true}  videoAction = {userApiAction.removeVideoFromHistory}/>

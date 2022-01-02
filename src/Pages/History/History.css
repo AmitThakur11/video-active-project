@@ -1,13 +1,17 @@
 .historyVideo__title{
     font-size: 24px;
-    font-weight:800
+    font-weight:800;
+    margin:10px 0px;
 
 }
 
 .historyVideo__items{
-    display: flex;
-    flex-wrap: wrap;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    
 }
+
+
 
 
 .clearHistoryBtn{
@@ -20,4 +24,10 @@
     border-radius:5px;
     margin:15px 0px;
     
+}
+
+@media(max-width:720px){
+    .historyVideo__items{
+        grid-template-columns: 1fr ;
+    }
 }
