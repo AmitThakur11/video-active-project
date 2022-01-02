@@ -1,78 +1,114 @@
-.loginContainer{
- 
+
+
+
+.signUp__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    
-  
-    
+    height: calc( 100vh - 80px );
+
+
+
 }
 
-.loginBox{
-    height:300px;
+.signUp__box {
+    height: 400px;
     background: rgb(255, 255, 255);
     display: flex;
-    width: 90%;
     max-width: 600px;
-    border-radius:4px;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    border-radius: 4px;
+    min-height: fit-content;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
 }
-.loginBox>img{
-    height:100%;
-    flex:1;
+
+.signUp__box>img {
+    height: 100%;
+    flex: 1;
 }
-.loginBox_input{
-    flex:1;
+
+.signUp__boxInput {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
-.loginBox_inner{
-    width:70%;
-    height:90%;
+
+.signUp__boxInner {
+    width: 70%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    
-}
-.loginBox_inner > input{
-    border : 0;
-    border-bottom: 1px solid black;
-}
-.loginBox_btn{
-    width: max-content;
-    padding:3px 10px;
-    color:white;
-    border:0;
-    border-radius : 2px;
-    background: crimson;
-    font-weight: 600;
 
 }
-.loginBox_btn:hover{
+.signUp__boxTitle{
+    font-size:20px;
+     font-weight:600;
+}
+
+.signUp__boxInner > input {
+    border: 0;
+    border: 1px solid black;
+    font-size: 16px;
+    height: 35px;
+    padding:4px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.btnFlex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.signUp__boxBtn {
+    background: orangered;
+    border: 0px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    border-radius: 4px;
+
+}
+
+.signUp__boxBtn:hover {
     background: black;
     transform: scale(1.09);
 }
 
-.loginBox_account{
+.signUp__boxAccount {
     font-size: small;
 }
-.loginBox_account > a{
-    color:red;
+
+.signUp__boxAccount >a {
+    color: red;
 }
 
-@media(max-width:650px){
-    .loginBox{
-        width:90%;
+@media(max-width : 780px) {
+    .signUp__box {
+        width: 360px;
+        position: relative
     }
-    .loginBox>img{
-        display: none;
+
+    .signUp__box > img {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        opacity: 0.4;
     }
-    .loginBox_inner{
-        width:90%;
+    .signUp__boxInner{
+        z-index: 1;
     }
+}
+
+@media(max-width : 480px) {
+    .signUp__box {
+        width: 90%;
+    }
+
 }

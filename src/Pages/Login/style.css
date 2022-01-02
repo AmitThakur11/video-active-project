@@ -1,99 +1,125 @@
-.loginContainer{
- 
+
+
+
+.loginContainer {
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    
-  
-    
+    height: calc( 100vh - 80px );
+
+
+
 }
 
-.loginBox{
-    height:300px;
+.loginBox {
+    height: 300px;
     background: rgb(255, 255, 255);
     display: flex;
-    width: 90%;
     max-width: 600px;
-    border-radius:4px;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    border-radius: 4px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
 
 }
-.loginBox>img{
-    height:100%;
-    flex:1;
+
+.loginBox>img {
+    height: 100%;
+    flex: 1;
 }
-.loginBox_input{
-    flex:1;
+
+.loginBox__input {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
-.loginBox_inner{
-    width:70%;
-    height:90%;
+
+.loginBox__inner {
+    width: 70%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    
-}
-.loginBox_inner > input{
-    border : 0;
-    border-bottom: 1px solid black;
-}
-.loginBox_btn{
-    width: max-content;
-    padding:7px 10px;
-    color:white;
-    border:0;
-    border-radius : 2px;
-    background: crimson;
-    font-weight: 600;
-    margin:3px;
 
 }
-.loginBox_btn:hover{
+
+.loginBox__inner>input {
+    border: 0;
+    border: 1px solid black;
+    font-size: 16px;
+    height: 35px;
+    padding:4px;
+    border-radius: 4px;
+    background-color: white;
+}
+.loginBox__title{
+    font-size: 20px;
+    font-weight:600;
+}
+
+.btnFlex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.loginBox__btn {
+    background: orangered;
+    border: 0px;
+    height: 35px;
+    color: white;
+    font-weight: 700;
+    border-radius: 4px;
+    flex:1 ;
+    margin:2px;
+}
+
+.loginBox__btn:hover {
     background: black;
     transform: scale(1.09);
 }
 
-.loginBox_account{
+.loginBox__account {
     font-size: small;
 }
-.loginBox_account > a{
-    color:red;
+
+.loginBox__account>a {
+    color: red;
 }
 
-.logoutBtn{
-    background:black;
-    color:white;
-    font-weight:700;
-    font-size:24px;
-    padding:10px;
-    border:0;
-    border-radius : 4px;
-    margin-right: 10px;
+.logoutBox {
+    width: 400px;
 }
 
-.logoutSection{
-   display: flex;
-   flex-direction: row-reverse;
-   place-items: center;
+.logoutBox img {
+    width: 50%;
+
 }
-.logoutSection >img{
-    width:50px;
+@media(max-width : 780px) {
+    .loginBox {
+        width: 360px;
+        position: relative
+    }
+
+    .loginBox > img {
+        height: 100%;
+        width: 100%;
+        flex: 1 1;
+        position: absolute;
+        opacity: 0.4;
+    }
+    .loginBox__inner{
+        z-index: 1;
+    }
 }
 
-@media(max-width:650px){
-    .loginBox{
-        width:90%;
+@media(max-width : 480px) {
+    .loginBox {
+        width: 90%;
     }
-    .loginBox>img{
-        display: none;
-    }
-    .loginBox_inner{
-        width:90%;
-    }
+
+    
 }
