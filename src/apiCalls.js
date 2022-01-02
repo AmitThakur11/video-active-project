@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-// import Loader from "./Components/Loader";
+
 
 const doLogin = async (userInput, state, navigate, setLogin,userDispatch,setLoading) => {
   try {

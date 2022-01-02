@@ -14,9 +14,7 @@ import { useAuth } from "../../Context/authContext";
 const PlayVideo = () => {
     const { id } = useParams()
     const { user: { videoList } , userDispatch} = useData()
-    console.log("user : ")
     const {isLogin} = useAuth()
-    console.log(videoList)
     const [playlistModal, setPlaylistModal] = useState(false)
     const [createplaylist, setCreatePlaylist] = useState(false)
     const [playlist, setPlaylist] = useState({
