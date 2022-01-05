@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom"
 import { userApiAction } from "../../apiCalls"
 const PlaylistData =()=>{
     const {id} = useParams()
-    const {user : {playlists}} = useData()
+    const {user : {playlists} ,loading} = useData()
+    console.log(playlists)
     const currentList = playlists.find(({_id})=>_id === id);
-    console.log(currentList)
     return(
         <>
-        <section>
+            {!loading  && <section>
             <div className ="playlist__title">{currentList.title}</div>
             <div className ="playlist__items">
                 {
@@ -21,7 +21,7 @@ const PlaylistData =()=>{
 
 
             </div>
-        </section>
+        </section>}
         </>
     )
 }

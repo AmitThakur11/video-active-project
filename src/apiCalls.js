@@ -2,7 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 
-const doLogin = async (userInput, state, navigate, setLogin,userDispatch,setLoading) => {
+export const doLogin = async (userInput, state, navigate, setLogin,userDispatch,setLoading) => {
   try {
     const { email, password } = userInput;
     if( email === "" && password === ""){
@@ -28,7 +28,7 @@ const doLogin = async (userInput, state, navigate, setLogin,userDispatch,setLoad
   }
 };
 
-const doRegister = async (userInput, navigate , setLoading) => {
+export const doRegister = async (userInput, navigate , setLoading) => {
   const { username, email, password, cpassword } = userInput;
   if( cpassword === "" && email === "" && password === "" && cpassword===""){
     return toast.warn('Empty field')
@@ -56,22 +56,46 @@ const doRegister = async (userInput, navigate , setLoading) => {
   }
 };
 
-const loadUserData = async (userDispatch,setLoading,setLogin) => {
+export const loadVideoList = async (userDispatch,setLoading,isLogin ,setLogin)=>{
+  try{
+    setLoading(true)
+    console.log("load video")
+    const {data : {success , payload}} = await axios.get("/video");
+    if(success){
+      setLoading(false)
+      userDispatch({type : "LOAD VIDEOLIST", payload :payload});
+      isLogin && loadUserData(userDispatch,setLoading,setLogin)
+    }
+
+  }catch(err){
+    setLoading(false);
+    toast.error(err.message)
+
+  }
+
+}
+
+export const loadUserData = async (userDispatch,setLoading,setLogin) => {
   try {
+    setLoading(true)
     const { data } = await axios.get("/user");
     if (data.success) {
-      userDispatch({type :"LOAD USER" , payload : data.userData})
+      setLoading(false)
+      const {userData : {likedVideos,playlists , history}} = data
+      userDispatch({type :"LOAD USER" , payload : {likedVideos,playlists,history}})
     }
   } catch(error) {
+    setLoading(false)
     localStorage.removeItem('token');
     localStorage.removeItem('login');
-    setLogin(false)
+    // setLogin(false)
+    userDispatch({type : "LOG OUT"})
     delete axios.defaults.headers.common["Authorization"];
     toast.info("session expire")
     
   }
 };
-const addVideoInLike = async ({videoId, userDispatch,setLoading}) => {
+export const addVideoInLike = async ({videoId, userDispatch,setLoading}) => {
   try {
     
     const {data :{msg,success,userData : {likedVideos}}} = await axios.post(`/user/like/${videoId}`);
@@ -84,7 +108,7 @@ const addVideoInLike = async ({videoId, userDispatch,setLoading}) => {
   }
 };
 
-const addVideoToHistory = async (videoId , userDispatch) => {
+export const addVideoToHistory = async (videoId , userDispatch) => {
   try {
     
     const {data} = await axios.post(`/user/history/${videoId}`);
@@ -99,7 +123,7 @@ const addVideoToHistory = async (videoId , userDispatch) => {
   
 };
 
-const removeVideoFromHistory = async ({videoId,userDispatch,setLoading}) => {
+export const removeVideoFromHistory = async ({videoId,userDispatch,setLoading}) => {
   try {
     setLoading(true)
     const {data} = await axios.delete(`/user/history/${videoId}`);
@@ -117,7 +141,7 @@ const removeVideoFromHistory = async ({videoId,userDispatch,setLoading}) => {
 
 
 
-const createPlayist = async (playlist , userDispatch ,setLoading) => {
+export const createPlayist = async (playlist , userDispatch ,setLoading) => {
   try {
     
     const {data} = await axios.post(`/user/${playlist.video}/playlist`, {newTitle : playlist.title});
@@ -131,7 +155,7 @@ const createPlayist = async (playlist , userDispatch ,setLoading) => {
   }
 };
 
-const removeHistory = async (userDispatch,setLoading) => {
+export const removeHistory = async (userDispatch,setLoading) => {
   try {
     setLoading(true)
     const {data} = await axios.delete("/user/history/remove");
@@ -146,7 +170,7 @@ const removeHistory = async (userDispatch,setLoading) => {
   }
 };
 
-const removePlaylist = async (playlistId, userDispatch,setLoading) => {
+export const removePlaylist = async (playlistId, userDispatch,setLoading) => {
   try {
    
     const {data} = await axios.delete(`/user/playlist/${playlistId}`);
@@ -160,7 +184,7 @@ const removePlaylist = async (playlistId, userDispatch,setLoading) => {
   }
 };
 
-const removeFromPlaylist = async({videoId,playlist,userDispatch , setLoading})=>{
+export const removeFromPlaylist = async({videoId,playlist,userDispatch , setLoading})=>{
   try{
     
     const {data} = await axios.delete(`/user/playlist/${playlist}/video/${videoId}`)
@@ -174,7 +198,7 @@ const removeFromPlaylist = async({videoId,playlist,userDispatch , setLoading})=>
   }
 }
 
-const updatePlaylist = async () => {
+export const updatePlaylist = async () => {
   try {
   } catch (error) {}
 };

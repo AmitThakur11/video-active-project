@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useReducer } from "react";
-import { initialState , userReducer } from "./util";
+import { initialState , userReducer } from "./reducer";
 export const dataContext = createContext();
 
 export default function DataProvider({ children }) {
