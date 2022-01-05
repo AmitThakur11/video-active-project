@@ -7,7 +7,6 @@ import { useAuth } from "../../Context/authContext";
 import {useData} from "../../Context/dataContext"
 const Header = () => {
   const {isLogin} = useAuth();
-  console.log("header login",isLogin)
   const {user} = useData();
   const [search ,setSearch] = useState("");
   const filteredData = user.videoList.filter(data => data.title.toLowerCase().includes(search.toLowerCase()))

@@ -7,7 +7,6 @@
     border-radius : 5px;
     transition: 0.3s ease-in-out;
     margin : 2px;
-    align-self: center;
   }
   .videoCard img{
     border-top-left-radius : 5px;

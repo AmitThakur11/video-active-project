@@ -56,15 +56,14 @@ export const doRegister = async (userInput, navigate , setLoading) => {
   }
 };
 
-export const loadVideoList = async (userDispatch,setLoading,isLogin ,setLogin)=>{
+export const loadVideoList = async (userDispatch,setLoading)=>{
   try{
     setLoading(true)
-    console.log("load video")
     const {data : {success , payload}} = await axios.get("/video");
     if(success){
       setLoading(false)
       userDispatch({type : "LOAD VIDEOLIST", payload :payload});
-      isLogin && loadUserData(userDispatch,setLoading,setLogin)
+      
     }
 
   }catch(err){

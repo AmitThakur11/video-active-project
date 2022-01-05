@@ -6,7 +6,6 @@ import { userApiAction } from "../../apiCalls"
 const PlaylistData =()=>{
     const {id} = useParams()
     const {user : {playlists} ,loading} = useData()
-    console.log(playlists)
     const currentList = playlists.find(({_id})=>_id === id);
     return(
         <>

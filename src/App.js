@@ -9,7 +9,6 @@ import { loadVideoList , loadUserData} from "./apiCalls"
 import {axiosInitializer} from "./utils/axiosInitiializer"
 function App() {
   const {setLogin , isLogin} = useAuth()
-  console.log("isLogin",isLogin)
   const {userDispatch, setLoading } = useData()
   useEffect(()=>{
     axiosInitializer()
@@ -19,7 +18,7 @@ function App() {
 
   useEffect(()=>{
     (()=>{
-      loadVideoList(userDispatch,setLoading,isLogin)
+      loadVideoList(userDispatch,setLoading)
       isLogin && loadUserData(userDispatch,setLoading,setLogin)
       
 

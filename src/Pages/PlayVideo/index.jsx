@@ -35,13 +35,13 @@ const PlayVideo = () => {
             {
                 videoList.map((video)=>{
                     return <> {
-                        video._id === id && <div className="video-container">
+                        video._id === id && <div key ={video._id} className="video-container">
                         {
                             <div key={video._id} className="video">
-                                <ReactPlayer url={video.url} width="100%" height="100%" playing light={false} controls  />
+                                <ReactPlayer  url={video.url} width="100%" height="100%" playing light={false} controls  />
                             </div>
                         }
-                        <VideoFooter  videoId={id} setPlaylistModal={setPlaylistModal} playlist={playlist} setPlaylist={setPlaylist} />
+                        <VideoFooter    videoId={video._id} setPlaylistModal={setPlaylistModal} playlist={playlist} setPlaylist={setPlaylist} />
         
                     </div>
                     }</>
@@ -52,7 +52,7 @@ const PlayVideo = () => {
             {
 
                 videoList.map((video) => {
-                    return <>{id !== video._id && <LikedCard video={video} show={false} />}</>
+                    return <>{id !== video._id && <LikedCard key={video._id} video={video} show={false}  />}</>
                 })
             }</div>
 

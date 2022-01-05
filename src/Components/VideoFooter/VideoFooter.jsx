@@ -20,7 +20,7 @@ const VideoFooter =({videoId , setPlaylistModal, playlist , setPlaylist})=>{
 
   const video =  videoList.find((video)=>video._id === videoId);
     return(
-        <section className="video-footer">
+        <section className="video-footer" key = {video._id}>
         <section className="title">{video?.title}</section>
         <section className="video-detail">
           <section className="video-views">

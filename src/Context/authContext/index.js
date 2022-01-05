@@ -16,8 +16,10 @@ export default function AuthProvider({children}){
 
     
     const [userInput , setUserInput] = useState(initialUser);
-    const loginStatus = localStorage.getItem('login') === true ? true : false
-    const [isLogin ,setLogin] = useState(loginStatus)
+
+    const loginStatus = localStorage.getItem("login")
+
+    const [isLogin ,setLogin] = useState(loginStatus=== "true" ? true : false)
 
 
     const getInput = (e)=>{
