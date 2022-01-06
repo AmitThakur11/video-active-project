@@ -14,17 +14,17 @@ export const doLogin = async (userInput, state, navigate, setLogin,userDispatch,
     setLoading(false)
     if (data.success) {
       setLogin(true);
-      toast.success("Login successful")
+      toast.success(data.msg)
       localStorage.setItem("token", data.token);
       localStorage.setItem("login", true);
       axios.defaults.headers.common["Authorization"] = localStorage.getItem('token')
       navigate(state ? state?.from : "/");
       loadUserData(userDispatch,setLoading,setLogin)
-      toast.success("User logged in ")
+      
     }
   } catch (error) {
     setLoading(false)
-    toast.error("login failed")
+    toast.error(error.response.data.msg)
   }
 };
 
@@ -45,14 +45,14 @@ export const doRegister = async (userInput, navigate , setLoading) => {
     password})
     setLoading(false)
     if(data.success){
-      console.log(data)
-      toast.success("Account created")
+      toast.success(data.msg)
       navigate("/login")
     }
       
   } catch (error) {
     setLoading(false)
-    toast.error("registeration failed")
+    toast.error(error.response.data.msg)
+    
   }
 };
 
@@ -68,7 +68,7 @@ export const loadVideoList = async (userDispatch,setLoading)=>{
 
   }catch(err){
     setLoading(false);
-    toast.error(err.message)
+    toast.error(err.response.data.msg)
 
   }
 
@@ -87,10 +87,9 @@ export const loadUserData = async (userDispatch,setLoading,setLogin) => {
     setLoading(false)
     localStorage.removeItem('token');
     localStorage.removeItem('login');
-    // setLogin(false)
     userDispatch({type : "LOG OUT"})
     delete axios.defaults.headers.common["Authorization"];
-    toast.info("session expire")
+    toast.info(error.response.data.msg)
     
   }
 };
@@ -117,7 +116,7 @@ export const addVideoToHistory = async (videoId , userDispatch) => {
     }
     
   } catch (error) {
-    console.log("history error")
+    toast.error(error.response.data.msg)
   }
   
 };
@@ -130,11 +129,12 @@ export const removeVideoFromHistory = async ({videoId,userDispatch,setLoading}) 
     if(data.success){
 
       userDispatch({type : "UPDATE HISTORY" , payload : data.userData.history})
-      toast.success("Video removed")
+      toast.success(data.msg)
     }
   } catch (error) {
     setLoading(false)
-    toast.error("Something went wrong")
+    toast.error(error.response.data.msg)
+    
   }
 };
 
@@ -146,11 +146,11 @@ export const createPlayist = async (playlist , userDispatch ,setLoading) => {
     const {data} = await axios.post(`/user/${playlist.video}/playlist`, {newTitle : playlist.title});
     if(data.success){
       userDispatch({type : "UPDATE PLAYLIST", payload : data.userData.playlists})
-      toast.success("Playlist created")
+      toast.success(data.msg)
     }
   } catch (error) {
-    
-    toast.error("Something went wrong")
+    toast.error(error.response.data.msg)
+
   }
 };
 
@@ -161,11 +161,12 @@ export const removeHistory = async (userDispatch,setLoading) => {
     setLoading(false)
     if(data.success){
       userDispatch({type : "UPDATE HISTORY" , payload : data.userData.history})
-      toast.success("History cleared")
+      toast.success(data.msg)
     }
   } catch (error) {
     setLoading(false)
-    toast.error("Something went wrong")
+    toast.error(error.response.data.msg)
+    
   }
 };
 
@@ -176,10 +177,11 @@ export const removePlaylist = async (playlistId, userDispatch,setLoading) => {
    
     if(data.success){
       userDispatch({type:"UPDATE PLAYLIST" , payload :data.userData.playlists})
-      toast.success("Playlist removed")
+      toast.success(data.msg)
     }
   } catch (error) {
-    toast.error("Something went wrong")
+    toast.error(error.response.data.msg)
+
   }
 };
 
@@ -190,10 +192,11 @@ export const removeFromPlaylist = async({videoId,playlist,userDispatch , setLoad
     
     if(data.success){
       userDispatch({type : "UPDATE PLAYLIST" , payload : data.userData.playlists})
-      toast.success("playlist Update")
+      toast.success(data.msg)
     }
   }catch(error){
-    toast.error("Something went wrong")
+    toast.error(error.response.data.msg)
+    
   }
 }
 
