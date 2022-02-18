@@ -2,7 +2,7 @@ import "./HomeCard.css";
 
 const HomeCard = ({video}) => {
   return (
-    <section className="home-video-card">
+    <section className="home-video-card" key={video._id}>
       <div className="hv-thumbnail">
         <img
           src={video.thumbnail}

@@ -7,7 +7,7 @@ import { useData } from "../../../Context/dataContext";
 export default function PlaylistCard({ playlist }) {
   const { userDispatch, setLoading } = useData();
   return (
-    <div className="playlistBox">
+    <div className="playlistBox" key ={playlist._id}>
       <Link to={`/playlist/${playlist._id}`}>
         <>
           <div className="listName">{playlist.title}</div>

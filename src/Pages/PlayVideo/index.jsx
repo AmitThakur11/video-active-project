@@ -35,7 +35,7 @@ const PlayVideo = () => {
             {
                 videoList.map((video)=>{
                     return <> {
-                        video._id === id && <div className="video-container">
+                        video._id === id && <div className="video-container" key ={video._id}>
                         {
                             <div key={video._id} className="video">
                                 <ReactPlayer url={video.url} width="100%" height="100%" playing light={false} controls  />

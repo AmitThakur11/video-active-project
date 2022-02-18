@@ -8,8 +8,8 @@ const LikedVideos =()=>{
     const {user : {likedVideos}} = useData()
     return(
         <>
-        {likedVideos.length?<section>
-            <div className ="likedVideo__title">Liked Videos : {likedVideos.length}</div>
+        {likedVideos.length?<section >
+            <div   className ="likedVideo__title">Liked Videos : {likedVideos.length}</div>
             <div className ="likedVideo__items">
                 {
                     likedVideos.map((video)=>{

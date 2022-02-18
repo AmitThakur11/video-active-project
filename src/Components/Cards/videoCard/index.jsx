@@ -7,7 +7,7 @@ export default function VideoCard({ video, show, videoAction, playlist }) {
   const { userDispatch, setLoading } = useData()
   return (
     <>
-      <section className="videoCard">
+      <section className="videoCard" key = {video._id}>
 
         <img onClick={() => navigate(`/video/${video._id}`)} className="videoCard__img" src={video.thumbnail} alt="" />
 

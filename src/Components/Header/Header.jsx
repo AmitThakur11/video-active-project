@@ -10,8 +10,6 @@ const Header = () => {
   const {user} = useData();
   const [search ,setSearch] = useState("");
   const filteredData = user.videoList.filter(data => data.title.toLowerCase().includes(search.toLowerCase()))
-  console.log(filteredData)
-  
   return (
     <header>
       <Link to="/">
@@ -30,11 +28,10 @@ const Header = () => {
         {search !=="" && <div className ="searchResult" onClick = {()=>setSearch("")}>
           {
             filteredData.length !== 0 ? filteredData.map(({title,_id})=>{
-              return <>
-              <div key ={_id} className ="searchResult__item" >
+              return <div key ={_id} className ="searchResult__item" >
                 <Link to={`/video/${_id}`}>{title}</Link>
                 </div>
-              </>
+              
             }): <div className="searchResult__item">no result</div>
           }
 
