@@ -1,0 +1,22 @@
+
+
+.libraryCard{
+    background-color: #f55929;
+    color:white;
+    display: grid;
+    color :white;
+    font-size: 18px;
+    font-weight: 600;
+    place-items: center;
+    height: 70px;
+    width : 240px;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+    border-radius: 6px;
+}
+
+.libraryCard:hover{
+    transform: scale(1.06);
+    background-color: black;
+}
+

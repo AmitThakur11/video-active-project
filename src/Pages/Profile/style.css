@@ -3,20 +3,39 @@
 
 
 .profileSection{
-    width :100%;
+
     display: flex;
-    place-content: center;
+    flex-direction: column;
+    gap:18px;
+    
+    
+}
+.userDetail{
+    height: 30%;
 }
 
-.profileSection >img{
-    width: 480px;
+.userDetail__name{
+    font-size:40px;
+    font-weight:700;
+    text-transform: uppercase;
+    /* width: fit-content; */
+    
+
 }
 
+.userLibrary{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+
+    
+    
+}
 
 @media(max-width:780px){
-    
-    .profileSection >img{
+/*     
+    .profileSection{
         margin-top:30px;
         width: 90%;
-    }
+    } */
 }
