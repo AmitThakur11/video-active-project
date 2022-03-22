@@ -1,0 +1,41 @@
+
+
+
+
+.profileSection{
+
+    display: flex;
+    flex-direction: column;
+    gap:18px;
+    
+    
+}
+.userDetail{
+    height: 30%;
+}
+
+.userDetail__name{
+    font-size:40px;
+    font-weight:700;
+    text-transform: uppercase;
+    /* width: fit-content; */
+    
+
+}
+
+.userLibrary{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+
+    
+    
+}
+
+@media(max-width:780px){
+/*     
+    .profileSection{
+        margin-top:30px;
+        width: 90%;
+    } */
+}

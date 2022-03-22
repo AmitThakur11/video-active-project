@@ -1,0 +1,39 @@
+.loaderContainer{
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    height: 100%;
+    width:100%;
+    
+
+}
+.loaderContainer img{
+    width: 80px;
+    height: 80px;
+    
+    animation: rotation 2s infinite linear;
+
+}
+@media(max-width : 780px){
+  .loaderContainer img{
+    width: 60px;
+    height: 60px;
+    
+    animation: rotation 2s infinite linear;
+
+}
+  
+}
+
+
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+

@@ -1,0 +1,138 @@
+
+
+
+.loginContainer {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc( 100vh - 80px );
+
+
+
+}
+
+.loginBox {
+    height: 300px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    max-width: 600px;
+    border-radius: 4px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+
+}
+
+.loginBox>img {
+    height: 100%;
+    flex: 1;
+}
+
+.loginBox__input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.loginBox__inner {
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.loginBox__inner>input {
+    border: 0;
+    border: 1px solid black;
+    font-size: 16px;
+    height: 35px;
+    padding:4px;
+    border-radius: 4px;
+    background-color: white;
+}
+.loginBox__title{
+    font-size: 20px;
+    font-weight:600;
+}
+
+.btnFlex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.loginBox__btn {
+    background: orangered;
+    border: 0px;
+    height: 35px;
+    color: white;
+    font-weight: 700;
+    border-radius: 4px;
+    flex:1 ;
+    margin:2px;
+}
+
+.loginBox__btn:hover {
+    background: black;
+    transform: scale(1.09);
+}
+
+.loginBox__account {
+    font-size: small;
+}
+
+.loginBox__account>a {
+    color: red;
+}
+.logoutSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.logoutSection > img {
+    width: 50px;
+
+}
+.logoutBtn{
+    font-size: 24px;
+    border:0;
+    padding:10px;
+    margin-right:10px;
+    font-weight: 500;
+
+
+}
+
+
+@media(max-width : 780px) {
+    .loginBox {
+        width: 360px;
+        position: relative
+    }
+
+    .loginBox > img {
+        height: 100%;
+        width: 100%;
+        flex: 1 1;
+        position: absolute;
+        opacity: 0.4;
+    }
+    .loginBox__inner{
+        z-index: 1;
+    }
+    
+}
+
+@media(max-width : 480px) {
+    .loginBox {
+        width: 90%;
+    }
+    
+}

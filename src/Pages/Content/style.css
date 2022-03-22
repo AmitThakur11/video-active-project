@@ -1,0 +1,45 @@
+.content-container {
+    margin-top: 60px;
+    display: flex;
+    height:100%;
+    
+  }
+  .content::-webkit::-webkit-scrollbar{
+    width:0;
+  }
+  
+  .content {
+    width: 87%;
+    margin-left: 15%;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding-top: 40px;
+  }
+  
+  @media (max-width: 640px) {
+    .content-container{
+      margin-top:8vh;
+    }
+    .content {
+      
+      width: 90%;
+      margin-left: 10vw;
+      margin-right: 10px;
+    }
+  }
+  @media (max-width: 480px) {
+    .content-container {
+      flex-direction: column-reverse;
+    }
+    .content {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0px;
+      background: white;
+    }
+    .content-container::-webkit-scrollbar{
+      width:0;
+    }
+  }
+  

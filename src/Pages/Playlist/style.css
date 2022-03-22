@@ -1,0 +1,25 @@
+.playlist__title{
+  
+    text-transform: capitalize;
+    font-size: 24px;
+    margin: 10px 0px;
+    font-weight:800;
+ 
+
+}
+
+.playlist__items{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    padding:2px;
+    grid-gap: 10px;
+
+    
+}
+
+
+@media(max-width:720px){
+    .playlist__items{
+        grid-template-columns: 1fr ;
+    }
+}

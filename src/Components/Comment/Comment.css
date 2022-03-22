@@ -1,0 +1,51 @@
+.comment-container{
+  height:80vh;
+  position: fixed;
+  right:30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+.comment-action{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin:10px 0px;
+ 
+}
+.comment-action>input{
+  border:0;
+  width:100%;
+  border-bottom: 1px solid;
+  font-size: 18px;
+  outline : none;
+
+}
+.comment-btn{
+  font-size:32px;
+}
+.comment-display{
+  width:100%;
+  display: flex;
+  justify-content: center;
+
+}
+.comment{
+  width:100%;
+
+}
+
+
+@media(max-width:920px){
+  .comment-container{
+    position: relative;
+    width:90%;
+    place-self: center;
+    right:0px;
+    height:40vh
+  }
+
+}

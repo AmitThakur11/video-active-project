@@ -1,0 +1,105 @@
+.side-bar {
+    position: fixed;
+    left: 0;
+    background-color: white;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+  }
+  .sb-option {
+    font-size: 28px;
+    background: rgb(223, 221, 221);
+    margin-bottom: 10px;
+    margin-right:10px;
+    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    width:100%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+  .sb-option > span {
+    font-size: 18px;
+    padding: 0px 4px;
+  }
+  .sb-option:hover {
+    background: black;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .side-bar-block {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    height: 100%;
+  }
+  .side-bar-block >{
+    width :100%;
+  }
+  
+  @media (max-width: 720px) {
+    .side-bar {
+      width: 10vw;
+      padding:20px;
+      display: flex;
+      place-items: center;
+      flex-direction: column;
+    }
+    .side-bar-block{
+      margin-top: 0px;
+    }
+    .sb-option > span {
+      display: none;
+    }
+    .sb-option {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .side-bar {
+      position: fixed;
+      top: none;
+      bottom: 0;
+      height: 8vh;
+      width: 100%;
+      background: white;
+      padding: 2px 0px;
+      z-index:1000;
+    }
+    .side-bar-block {
+      display: flex;
+      width: 80%;
+      margin: 0;
+      height: 90%;
+      border-radius: 5px;
+      flex-direction: row;
+      justify-content: space-around;
+      place-items: center;
+      background-color: rgb(255, 255, 255);
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    }
+    .sb-option > span {
+      display: none;
+    }
+    .sb-option {
+      font-size: 26px;
+      color: rgb(10, 10, 10);
+      background: transparent;
+      box-shadow: none;
+      line-height: 0;
+      padding: 0;
+      margin: 0px;
+    }
+    .sb-option:hover {
+      color: #de4726;
+    }
+  }
+  

@@ -1,0 +1,146 @@
+header {
+    height: 60px;
+    padding: 2px;
+    display: flex;
+    align-self: center;
+    width: 100%;
+    background: white;
+    z-index: 9999;
+    padding:0px 10px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+  }
+  .icon {
+    font-size: 24px;
+    margin: 0px 10px;
+    cursor: pointer;
+  }
+  header >a{
+    height:100%;
+  }
+  a > .logo {
+    flex-grow: 0;
+    height:100%;
+    background: #ff7045;
+    place-items: center;
+    display: flex;
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .logo > img {
+    height: 100%;
+  }
+  .logo-name {
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 4px;
+    font-size: 14px;
+    line-height: 1em;
+    margin-left: 2px;
+  }
+  .logo-name > span {
+    letter-spacing: 2px;
+    color: #ff7045;
+  }
+
+  .searchBar__section{
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px
+  }
+
+  .searchInput{
+    font-size: 16px;
+    height: 30px;
+    padding-left: 5px;
+    border: 1px solid black;
+  }
+  .searchResult{
+    width: 50%;
+    position: absolute;
+    top: 60px;
+    background: rgb(226, 226, 226);
+    max-height: 300px;
+    overflow-y: scroll;
+    /* border: 1px solid black; */
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.searchResult::-webkit-scrollbar{
+  background: rgb(197, 193, 193);
+  width:6px;
+}
+.searchResult::-webkit-scrollbar-thumb{
+  background: orangered;
+}
+.searchResult__item{
+  font-weight: 500;
+    margin-bottom: 10px;
+    padding: 6px;
+}
+  
+  
+  
+  .header-menu {
+    justify-content: center;
+    place-items: center;
+    display: flex;
+  }
+
+  .login-btn{
+    background: black;
+    padding:6px 10px;
+    color:white;
+    font-weight: 700;
+    border-radius:4px;
+
+  }
+  .login-btn:active{
+    cursor: pointer;
+    background: black;
+    transform : scale(0.9);
+  }
+  @media (max-width: 780px) {
+    header{
+      height: 8vh;
+      width: 100%;
+      padding:0px 2px
+    }
+    a > .logo {
+      margin-left: 0;
+    }
+  
+    .search-bar {
+      justify-content: flex-end;
+    }
+  
+    .search-bar > input {
+      display: none;
+    }
+  
+    .header-menu {
+      flex-grow: 0;
+    }
+    .icon {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0px 5px;
+    }
+  }
+  
+  @media(max-width:480px){
+    .searchInput{
+      width: 90%;
+    }
+    .searchResult{
+      width: 60%;
+    }
+    
+    
+  }
