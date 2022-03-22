@@ -2,14 +2,13 @@
     font-size: 24px;
     font-weight:800;
     margin:10px 0px;
-    padding:20px
+ 
 
 }
 
 .likedVideo__items{
     display:grid;
     grid-template-columns: 1fr 1fr;
-    place-items: center;
     padding:2px;
     grid-gap: 10px;
     
